@@ -49,3 +49,8 @@ SELECT * FROM course;
 SELECT * FROM teacher;
 SELECT * FROM school;
 SELECT * FROM student;
+
+INSERT INTO teacher (teacherName, address)
+VALUES ('Kalle Kula', 'Skogsvägen 3'),
+       ('Arne Johansson', 'Båtgatan 1'),
+       ('Johan Johansson','Storgatan 5');
