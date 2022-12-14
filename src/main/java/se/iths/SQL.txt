@@ -68,3 +68,11 @@ INSERT INTO class(className, duration, classSchoolIDFK)
 VALUES  ('Javautvecklare, 2, 1'),
         ('Webbutvecklare, 3, 2'),
         ('Frontendutvecklare, 1, 3');
+
+
+
+-- Emil -> 4 student
+INSERT INTO student(studentName, age, address, studentClassIDFK)
+VALUES ('Emil Coolman', 27, 'Maxivägen 20', 01),
+       ( 'Gregor Gregor', 22, 'Mölndalgatan', 02),
+       ( 'Stefan Stefansson', 35, 'Bengatan', 03);
