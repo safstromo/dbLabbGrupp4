@@ -18,6 +18,6 @@ skapa tabeller 5st
 Kontrakt:
 1.  Vid sjukdom. Om barnen är sjuka.
 2. Prata med personen, göra uppgiften ihop.
-3. Teams gruppen
+3. Teams, discord gruppen
 4. Hålla en bra dialog.
 
