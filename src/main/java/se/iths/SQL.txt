@@ -1,1 +1,7 @@
-CREATE DATABASE dbLabbGrupp4
+CREATE DATABASE dbLabbGrupp4;
+
+CREATE TABLE students(
+	studentID INT NOT NULL AUTO_INCREMENT,
+	studentName VARCHAR (50),
+	PRIMARY KEY(stadPostnummer)
+);
