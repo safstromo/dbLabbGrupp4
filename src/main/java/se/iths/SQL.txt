@@ -1,7 +1,48 @@
 CREATE DATABASE dbLabbGrupp4;
 
-CREATE TABLE students(
+CREATE TABLE school(
+    schoolID INT NOT NULL AUTO_INCREMENT,
+    schoolName VARCHAR (20),
+    address VARCHAR (50),
+    PRIMARY KEY (schoolID),
+);
+
+CREATE TABLE teacher(
+    teacherID INT NOT NULL AUTO_INCREMENT,
+    teacherName VARCHAR (20),
+    address VARCHAR(50),
+    PRIMARY KEY (teacherID),
+);
+
+CREATE TABLE class(
+    classID INT NOT NULL AUTO_INCREMENT,
+    className VARCHAR (20),
+    duration INT,
+    classTeacherIDFK,
+    classSchoolIDFK,
+    PRIMARY KEY (classID),
+    FOREIGN KEY(classTeacherIDFK) REFERENCES teacher(teacherID),
+    FOREIGN KEY(classSchoolIDFK) REFERENCES school(schoolID)
+);
+
+CREATE TABLE student(
 	studentID INT NOT NULL AUTO_INCREMENT,
 	studentName VARCHAR (50),
-	PRIMARY KEY(stadPostnummer)
+	age INT,
+	address VARCHAR (50),
+	studentClassIDFK,
+    PRIMARY KEY(studentID),
+	FOREIGN KEY(studentClassIDFK) REFERENCES class(classID)
 );
+
+
+CREATE TABLE course(
+    courseID INT NOT NULL AUTO_INCREMENT,
+    courseName VARCHAR (20),
+    room VARCHAR(20),
+    courseClassIDFK,
+    PRIMARY KEY (courseID),
+    FOREIGN KEY(courseClassIDFK) REFERENCES class(classID)
+);
+
+
