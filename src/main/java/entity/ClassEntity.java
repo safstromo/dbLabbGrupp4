@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "class", schema = "dblabbgrupp4", catalog = "")
-public class ClazzEntity {
+public class ClassEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "classID", nullable = false)
@@ -59,7 +59,7 @@ public class ClazzEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ClazzEntity that = (ClazzEntity) o;
+        ClassEntity that = (ClassEntity) o;
 
         if (classId != that.classId) return false;
         if (className != null ? !className.equals(that.className) : that.className != null) return false;

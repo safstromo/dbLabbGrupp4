@@ -5,7 +5,7 @@
 			 version="3.0">
 	<persistence-unit name="default">
 
-        <class>entity.ClazzEntity</class>
+        <class>entity.ClassEntity</class>
 		<class>entity.CourseEntity</class>
 		<class>entity.SchoolEntity</class>
 		<class>entity.StudentEntity</class>
