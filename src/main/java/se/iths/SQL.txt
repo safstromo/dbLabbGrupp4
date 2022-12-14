@@ -62,3 +62,9 @@ VALUES ('Javaprogrammering', 'Yoshi', 0001, 0001),
        ('Utveckling mot databaser', 'Wizzar', 0002, 0002),
        ('Javaverktyg och byggmiljöer', 'Adobe', 003, 003),
        ('Web services och integrationer', 'Console',004,004);
+
+//Saher 3 -> class
+INSERT INTO class(className, duration, classSchoolIDFK)
+VALUES  ('Javautvecklare, 2, 1'),
+        ('Webbutvecklare, 3, 2'),
+        ('Frontendutvecklare, 1, 3');
