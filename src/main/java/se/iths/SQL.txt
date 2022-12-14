@@ -30,7 +30,7 @@ CREATE TABLE class
 
 CREATE TABLE student
 (
-    studentID        INT NOT NULL UNIQUE,
+    studentID        INT NOT NULL AUTO_INCREMENT,
     studentName      VARCHAR(50),
     age              INT,
     address          VARCHAR(50),
