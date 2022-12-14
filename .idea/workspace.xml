@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/ClazzEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/CourseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/SchoolEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/StudentEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/TeacherEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/SQL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/SQL.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Utveckling mot databaser/DemoJpa20221213",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,7 +113,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671013576977</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="entity classes">
+      <created>1671013824755</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1671013824755</updated>
+    </task>
+    <task id="LOCAL-00007" summary="refactor clazz till class">
+      <created>1671013908204</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671013908204</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +139,8 @@
     <MESSAGE value="Lägga till UML diagram" />
     <MESSAGE value="skapa tabellerna" />
     <MESSAGE value="ändringar" />
-    <option name="LAST_COMMIT_MESSAGE" value="ändringar" />
+    <MESSAGE value="entity classes" />
+    <MESSAGE value="refactor clazz till class" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor clazz till class" />
   </component>
 </project>
