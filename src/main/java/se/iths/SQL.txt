@@ -1,48 +1,54 @@
 CREATE DATABASE dbLabbGrupp4;
 
 CREATE TABLE school(
-    schoolID INT NOT NULL AUTO_INCREMENT,
-    schoolName VARCHAR (20),
-    address VARCHAR (50),
-    PRIMARY KEY (schoolID),
+                       schoolID INT NOT NULL AUTO_INCREMENT,
+                       schoolName VARCHAR (20),
+                       address VARCHAR (50),
+                       PRIMARY KEY (schoolID)
 );
 
 CREATE TABLE teacher(
-    teacherID INT NOT NULL AUTO_INCREMENT,
-    teacherName VARCHAR (20),
-    address VARCHAR(50),
-    PRIMARY KEY (teacherID),
+                        teacherID INT NOT NULL AUTO_INCREMENT,
+                        teacherName VARCHAR (20),
+                        address VARCHAR(50),
+                        PRIMARY KEY (teacherID)
 );
 
 CREATE TABLE class(
-    classID INT NOT NULL AUTO_INCREMENT,
-    className VARCHAR (20),
-    duration INT,
-    classTeacherIDFK,
-    classSchoolIDFK,
-    PRIMARY KEY (classID),
-    FOREIGN KEY(classTeacherIDFK) REFERENCES teacher(teacherID),
-    FOREIGN KEY(classSchoolIDFK) REFERENCES school(schoolID)
+                      classID INT NOT NULL AUTO_INCREMENT,
+                      className VARCHAR (20),
+                      duration INT,
+                      classTeacherIDFK INT,
+                      classSchoolIDFK INT,
+                      PRIMARY KEY (classID),
+                      FOREIGN KEY(classTeacherIDFK) REFERENCES teacher(teacherID),
+                      FOREIGN KEY(classSchoolIDFK) REFERENCES school(schoolID)
 );
 
 CREATE TABLE student(
-	studentID INT NOT NULL AUTO_INCREMENT,
-	studentName VARCHAR (50),
-	age INT,
-	address VARCHAR (50),
-	studentClassIDFK,
-    PRIMARY KEY(studentID),
-	FOREIGN KEY(studentClassIDFK) REFERENCES class(classID)
+                        studentID INT NOT NULL AUTO_INCREMENT,
+                        studentName VARCHAR (50),
+                        age INT,
+                        address VARCHAR (50),
+                        studentClassIDFK INT,
+                        PRIMARY KEY(studentID),
+                        FOREIGN KEY(studentClassIDFK) REFERENCES class(classID)
 );
-
 
 CREATE TABLE course(
-    courseID INT NOT NULL AUTO_INCREMENT,
-    courseName VARCHAR (20),
-    room VARCHAR(20),
-    courseClassIDFK,
-    PRIMARY KEY (courseID),
-    FOREIGN KEY(courseClassIDFK) REFERENCES class(classID)
+                       courseID INT NOT NULL AUTO_INCREMENT,
+                       courseName VARCHAR (20),
+                       room VARCHAR(20),
+                       courseClassIDFK INT,
+                       courseTeacherIDFK INT,
+                       PRIMARY KEY (courseID),
+                       FOREIGN KEY(courseClassIDFK) REFERENCES class(classID),
+                       FOREIGN KEY(courseTeacherIDFK) REFERENCES teacher(teacherID)
 );
 
+SELECT * FROM class;
+SELECT * FROM course;
+SELECT * FROM teacher;
+SELECT * FROM school;
+SELECT * FROM student;
 
