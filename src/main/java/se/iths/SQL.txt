@@ -49,3 +49,30 @@ SELECT * FROM course;
 SELECT * FROM teacher;
 SELECT * FROM school;
 SELECT * FROM student;
+
+//Oliver -> 1 teacher
+INSERT INTO teacher (teacherName, address)
+VALUES ('Kalle Kula', 'Skogsvägen 3'),
+       ('Arne Johansson', 'Båtgatan 1'),
+       ('Johan Johansson','Storgatan 5');
+
+//Robert 5 -> course
+INSERT INTO course (courseName, room, courseClassIDFK, courseTeacherIDFK)
+VALUES ('Javaprogrammering', 'Yoshi', 0001, 0001),
+       ('Utveckling mot databaser', 'Wizzar', 0002, 0002),
+       ('Javaverktyg och byggmiljöer', 'Adobe', 003, 003),
+       ('Web services och integrationer', 'Console',004,004);
+
+//Saher 3 -> class
+INSERT INTO class(className, duration, classSchoolIDFK)
+VALUES  ('Javautvecklare, 2, 1'),
+        ('Webbutvecklare, 3, 2'),
+        ('Frontendutvecklare, 1, 3');
+
+
+
+-- Emil -> 4 student
+INSERT INTO student(studentName, age, address, studentClassIDFK)
+VALUES ('Emil Coolman', 27, 'Maxivägen 20', 01),
+       ( 'Gregor Gregor', 22, 'Mölndalgatan', 02),
+       ( 'Stefan Stefansson', 35, 'Bengatan', 03);
