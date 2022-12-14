@@ -76,3 +76,10 @@ INSERT INTO student(studentName, age, address, studentClassIDFK)
 VALUES ('Emil Coolman', 27, 'Maxivägen 20', 01),
        ( 'Gregor Gregor', 22, 'Mölndalgatan', 02),
        ( 'Stefan Stefansson', 35, 'Bengatan', 03);
+
+
+-- Anton -> 2 school
+INSERT INTO school( schoolName, address)
+VALUES('It-Högskolan',' Ebbe Lieberathsgatan 18C, 412 65 Göteborg'),
+       ('Chalmers','Chalmersplatsen 4,412 96 Göteborg'),
+       ('GU' ,'Universitetsplatsen 1, 405 30 Göteborg');

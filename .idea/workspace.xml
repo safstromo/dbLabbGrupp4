@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="Robert Test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/Anton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/Anton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/SQL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/SQL.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +90,13 @@
       <option name="project" value="LOCAL" />
       <updated>1671012181346</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Robert Test">
+      <created>1671018443759</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1671018443759</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +118,7 @@
     <MESSAGE value="UML diagram" />
     <MESSAGE value="Lägga till UML diagram" />
     <MESSAGE value="skapa tabellerna" />
-    <option name="LAST_COMMIT_MESSAGE" value="skapa tabellerna" />
+    <MESSAGE value="Robert Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Robert Test" />
   </component>
 </project>
