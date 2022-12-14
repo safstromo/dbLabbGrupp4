@@ -49,8 +49,3 @@ SELECT * FROM course;
 SELECT * FROM teacher;
 SELECT * FROM school;
 SELECT * FROM student;
-
-INSERT INTO class(className, duration, classSchoolIDFK)
-VALUES  ('Javautvecklare, 2, 1'),
-        ('Webbutvecklare, 3, 2'),
-        ('Frontendutvecklare, 1, 3');
