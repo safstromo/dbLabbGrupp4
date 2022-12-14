@@ -49,3 +49,11 @@ SELECT * FROM course;
 SELECT * FROM teacher;
 SELECT * FROM school;
 SELECT * FROM student;
+
+
+
+// Anton 1 -> School
+INSERT INTO school( schoolName, address)
+VALUES('It-Högskolan',' Ebbe Lieberathsgatan 18C, 412 65 Göteborg'),
+       ('Chalmers','Chalmersplatsen 4,412 96 Göteborg'),
+       ('Göteborgs Universitet' ,'Universitetsplatsen 1, 405 30 Göteborg');
