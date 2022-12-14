@@ -18,10 +18,8 @@ CREATE TABLE class(
                       classID INT NOT NULL AUTO_INCREMENT,
                       className VARCHAR (20),
                       duration INT,
-                      classTeacherIDFK INT,
                       classSchoolIDFK INT,
                       PRIMARY KEY (classID),
-                      FOREIGN KEY(classTeacherIDFK) REFERENCES teacher(teacherID),
                       FOREIGN KEY(classSchoolIDFK) REFERENCES school(schoolID)
 );
 
@@ -51,4 +49,3 @@ SELECT * FROM course;
 SELECT * FROM teacher;
 SELECT * FROM school;
 SELECT * FROM student;
-
