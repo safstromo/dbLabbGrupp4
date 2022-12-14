@@ -1,5 +1,19 @@
-Välja tema Glosor
-Språk Engelska
+// TODO
+
+Egen klass;
+
+CRUD för egen klass:
+F
+
+
+
+
+
+
+
+
+
+
                     Tabeller
 
                     Elevnamn
