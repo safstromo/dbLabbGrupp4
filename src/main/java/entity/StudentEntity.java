@@ -23,7 +23,7 @@ public class StudentEntity {
     private Integer studentClassIdfk;
     @ManyToOne
     @JoinColumn(name = "studentClassIDFK", referencedColumnName = "classID")
-    private ClazzEntity clazzByStudentClassIdfk;
+    private ClassEntity clazzByStudentClassIdfk;
 
     public int getStudentId() {
         return studentId;
@@ -92,11 +92,11 @@ public class StudentEntity {
         return result;
     }
 
-    public ClazzEntity getClazzByStudentClassIdfk() {
+    public ClassEntity getClazzByStudentClassIdfk() {
         return clazzByStudentClassIdfk;
     }
 
-    public void setClazzByStudentClassIdfk(ClazzEntity clazzByStudentClassIdfk) {
+    public void setClazzByStudentClassIdfk(ClassEntity clazzByStudentClassIdfk) {
         this.clazzByStudentClassIdfk = clazzByStudentClassIdfk;
     }
 }
