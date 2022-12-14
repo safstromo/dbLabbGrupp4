@@ -55,10 +55,20 @@ public class TeacherEntity {
     }
 
     @Override
+    public String toString() {
+        return "TeacherEntity{" +
+                "teacherId=" + teacherId +
+                ", teacherName='" + teacherName + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         int result = teacherId;
         result = 31 * result + (teacherName != null ? teacherName.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
+
     }
 }

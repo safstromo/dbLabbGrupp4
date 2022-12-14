@@ -22,10 +22,10 @@ public class CourseEntity {
     @Column(name = "courseTeacherIDFK", nullable = true)
     private Integer courseTeacherIdfk;
     @ManyToOne
-    @JoinColumn(name = "courseClassIDFK", referencedColumnName = "classID")
+    @JoinColumn(name = "courseClassIDFK", referencedColumnName = "classID",insertable = false,updatable = false)
     private ClassEntity clazzByCourseClassIdfk;
     @ManyToOne
-    @JoinColumn(name = "courseTeacherIDFK", referencedColumnName = "teacherID")
+    @JoinColumn(name = "courseTeacherIDFK", referencedColumnName = "teacherID", insertable = false,updatable = false)
     private TeacherEntity teacherByCourseTeacherIdfk;
 
     public int getCourseId() {

@@ -22,7 +22,7 @@ public class StudentEntity {
     @Column(name = "studentClassIDFK", nullable = true)
     private Integer studentClassIdfk;
     @ManyToOne
-    @JoinColumn(name = "studentClassIDFK", referencedColumnName = "classID")
+    @JoinColumn(name = "studentClassIDFK", referencedColumnName = "classID" ,insertable =false, updatable = false)
     private ClassEntity clazzByStudentClassIdfk;
 
     public int getStudentId() {
