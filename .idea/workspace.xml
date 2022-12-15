@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="Fixat till Entitryklasserna med vilkor som saknades">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="Teacher.java CRUD done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/TeacherEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/TeacherEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/Oliver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/Oliver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +14,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -86,6 +85,7 @@
       <updated>1670930683169</updated>
       <workItem from="1670930684270" duration="139000" />
       <workItem from="1670930834324" duration="745000" />
+      <workItem from="1671097955430" duration="5000" />
     </task>
     <task id="LOCAL-00001" summary="UML diagram">
       <created>1671009852610</created>
@@ -128,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671026060036</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Teacher.java CRUD done">
+      <created>1671096156964</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671096156964</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +159,7 @@
     <MESSAGE value="skapa tabellerna" />
     <MESSAGE value="Robert Test" />
     <MESSAGE value="Fixat till Entitryklasserna med vilkor som saknades" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixat till Entitryklasserna med vilkor som saknades" />
+    <MESSAGE value="Teacher.java CRUD done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Teacher.java CRUD done" />
   </component>
 </project>
