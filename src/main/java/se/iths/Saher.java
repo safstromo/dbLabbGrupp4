@@ -4,6 +4,7 @@ import entity.ClassEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 
 import java.util.Scanner;
 
@@ -46,5 +47,32 @@ public class Saher {
         System.out.println("Class input successful!");
     }
 
+    private static void showAllClasses() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        Query query = entityManager.createQuery("SELECT classes FROM ClassEntity classes");
+
+        var listOfClasses = query.getResultList();
+        if(listOfClasses.isEmpty())
+            System.out.println("No classes available to show");
+        else listOfClasses.forEach(System.out::println);
+    }
+
+    private static void updateBook(){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        ClassEntity bok = entityManager.find( ClassEntity.class, 1 );
+        bok.setBokTitel("Vi på Saltkråkan");
+        bok.setBokForfattare("Astrid Lindgren");
+        entityManager.persist(bok);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
+
+        System.out.println("Du har uppdaterat boken");
+
+    }
 
 }

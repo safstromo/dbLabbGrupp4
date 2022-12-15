@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d6d27ac-4079-4477-84d3-6446a57a1193" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ClassEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ClassEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/Saher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/Saher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +63,7 @@
       <updated>1670930683169</updated>
       <workItem from="1670930684270" duration="139000" />
       <workItem from="1670930834324" duration="745000" />
-      <workItem from="1671122682956" duration="693000" />
+      <workItem from="1671122682956" duration="2348000" />
     </task>
     <task id="LOCAL-00001" summary="UML diagram">
       <created>1671009852610</created>
@@ -110,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671020385277</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add persistence to gitignore">
+      <created>1671123410236</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671123410236</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +137,7 @@
     <MESSAGE value="skapa tabellerna" />
     <MESSAGE value="Robert Test" />
     <MESSAGE value="SQl unique" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQl unique" />
+    <MESSAGE value="add persistence to gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add persistence to gitignore" />
   </component>
 </project>
