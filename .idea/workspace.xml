@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="Robert Test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/Saher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/Saher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671020385277</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Saher class klass">
+      <created>1671022013898</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1671022013898</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +134,7 @@
     <MESSAGE value="skapa tabellerna" />
     <MESSAGE value="Robert Test" />
     <MESSAGE value="SQl unique" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQl unique" />
+    <MESSAGE value="Saher class klass" />
+    <option name="LAST_COMMIT_MESSAGE" value="Saher class klass" />
   </component>
 </project>
