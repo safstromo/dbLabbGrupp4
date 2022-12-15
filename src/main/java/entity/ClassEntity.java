@@ -86,4 +86,15 @@ public class ClassEntity {
     public void setSchoolByClassSchoolIdfk(SchoolEntity schoolByClassSchoolIdfk) {
         this.schoolByClassSchoolIdfk = schoolByClassSchoolIdfk;
     }
+
+    @Override
+    public String toString() {
+        return "ClassEntity{" +
+                "classId=" + classId +
+                ", className='" + className + '\'' +
+                ", duration=" + duration +
+                ", classSchoolIdfk=" + classSchoolIdfk +
+                ", schoolByClassSchoolIdfk=" + schoolByClassSchoolIdfk +
+                '}';
+    }
 }

@@ -12,8 +12,19 @@ public class Saher {
     //TODO CLASS
     private static Scanner sc = new Scanner(System.in);
 
-    public static void menu() {
+    public static void main(String[] args) {
+        menu();
+    }
 
+    public static void menu() {
+        System.out.println("Welcome to the CLASS DATABASE \n" +
+                "Choose from the options below \n" +
+                "1 - View all the classes/programs available in the database \n" +
+                "2 - Add a new class/program");
+        int inputChoice = sc.nextInt();
+        switch (inputChoice) {
+            case 1 -> showAllClasses();
+        }
     }
 
     private static void detailsOfclassToInput(){
@@ -59,20 +70,44 @@ public class Saher {
         else listOfClasses.forEach(System.out::println);
     }
 
-    private static void updateBook(){
+    private static void updateClass(){
+        System.out.println("Enter the ID of the class to update");
+        int classIdToUpdate = sc.nextInt();
+        sc.nextLine();
+        System.out.println("What would you like to update? \n" +
+                "1- Class name \n" +
+                "2- Duration of the class \n" +
+                "3- School to which the class belongs");
+        int inputChoice = sc.nextInt();
+        switch (inputChoice) {
+            case 1 -> updateClassName();
+            case 2 -> updateClassDuration();
+            case 3 -> updateClassSchoolID();
+        }
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        ClassEntity bok = entityManager.find( ClassEntity.class, 1 );
-        bok.setBokTitel("Vi på Saltkråkan");
-        bok.setBokForfattare("Astrid Lindgren");
-        entityManager.persist(bok);
+        ClassEntity classEntity = entityManager.find( ClassEntity.class, classIdToUpdate );
+
+        entityManager.persist(classEntity);
         entityManager.getTransaction().commit();
         entityManager.close();
         entityManagerFactory.close();
 
-        System.out.println("Du har uppdaterat boken");
+        System.out.println("Class successfully updated!");
 
+    }
+
+    private static void updateClassSchoolID() {
+
+    }
+
+    private static void updateClassDuration() {
+
+    }
+
+    private static void updateClassName() {
+        System.out.println("Write the new name for the class");
     }
 
 }
