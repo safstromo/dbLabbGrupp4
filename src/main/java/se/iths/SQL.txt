@@ -12,7 +12,7 @@ CREATE TABLE school
 
 CREATE TABLE teacher
 (
-    teacherID   INT NOT NULL UNIQUE,
+    teacherID   INT NOT NULL AUTO_INCREMENT UNIQUE,
     teacherName VARCHAR(50),
     address     VARCHAR(50),
     PRIMARY KEY (teacherID)
