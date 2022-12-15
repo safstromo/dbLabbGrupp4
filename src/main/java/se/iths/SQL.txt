@@ -12,7 +12,7 @@ CREATE TABLE school
 
 CREATE TABLE teacher
 (
-    teacherID   INT NOT NULL UNIQUE,
+    teacherID   INT NOT NULL AUTO_INCREMENT UNIQUE,
     teacherName VARCHAR(50),
     address     VARCHAR(50),
     PRIMARY KEY (teacherID)
@@ -30,7 +30,7 @@ CREATE TABLE class
 
 CREATE TABLE student
 (
-    studentID        INT NOT NULL UNIQUE,
+    studentID        INT NOT NULL AUTO_INCREMENT,
     studentName      VARCHAR(50),
     age              INT,
     address          VARCHAR(50),
@@ -97,4 +97,3 @@ VALUES (1, 'Javaprogrammering', 'Yoshi', 1, 1),
 
 
 
-DROP DATABASE dbLabbGrupp4;

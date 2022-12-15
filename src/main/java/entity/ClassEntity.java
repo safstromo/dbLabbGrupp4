@@ -19,7 +19,7 @@ public class ClassEntity {
     @Column(name = "classSchoolIDFK", nullable = true)
     private Integer classSchoolIdfk;
     @ManyToOne
-    @JoinColumn(name = "classSchoolIDFK", referencedColumnName = "schoolID")
+    @JoinColumn(name = "classSchoolIDFK", referencedColumnName = "schoolID", insertable = false,updatable = false)
     private SchoolEntity schoolByClassSchoolIdfk;
 
     public int getClassId() {

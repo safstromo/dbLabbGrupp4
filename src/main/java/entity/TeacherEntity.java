@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class TeacherEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "teacherID", nullable = false)
+    @Column(name = "teacherID")
     private int teacherId;
     @Basic
     @Column(name = "teacherName", nullable = true, length = 20)
@@ -55,10 +55,19 @@ public class TeacherEntity {
     }
 
     @Override
+    public String toString() {
+        return
+                "ID: " + teacherId + " |"+
+                " Teachers Name: " + teacherName +" |"+
+                " Adress: " + address;
+    }
+
+    @Override
     public int hashCode() {
         int result = teacherId;
         result = 31 * result + (teacherName != null ? teacherName.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
+
     }
 }
