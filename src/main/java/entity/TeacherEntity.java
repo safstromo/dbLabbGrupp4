@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class TeacherEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "teacherID", nullable = false)
+    @Column(name = "teacherID")
     private int teacherId;
     @Basic
     @Column(name = "teacherName", nullable = true, length = 20)
@@ -56,11 +56,10 @@ public class TeacherEntity {
 
     @Override
     public String toString() {
-        return "TeacherEntity{" +
-                "teacherId=" + teacherId +
-                ", teacherName='" + teacherName + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        return
+                "ID: " + teacherId + " |"+
+                " Teachers Name: " + teacherName +" |"+
+                " Adress: " + address;
     }
 
     @Override

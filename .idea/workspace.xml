@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="Robert Test">
+    <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="Fixat till Entitryklasserna med vilkor som saknades">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/Saher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/Saher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/TeacherEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/TeacherEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/Oliver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/Oliver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +55,26 @@
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="entity" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Teacher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.iths.Teacher" />
+      <module name="dbLabbGrupp4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Teacher" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -97,12 +121,12 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1671018443759</updated>
     </task>
-    <task id="LOCAL-00006" summary="SQl unique">
-      <created>1671020385277</created>
+    <task id="LOCAL-00006" summary="Fixat till Entitryklasserna med vilkor som saknades">
+      <created>1671026060036</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1671020385277</updated>
+      <updated>1671026060036</updated>
     </task>
     <option name="localTasksCounter" value="7" />
     <servers />
@@ -127,7 +151,7 @@
     <MESSAGE value="Lägga till UML diagram" />
     <MESSAGE value="skapa tabellerna" />
     <MESSAGE value="Robert Test" />
-    <MESSAGE value="SQl unique" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQl unique" />
+    <MESSAGE value="Fixat till Entitryklasserna med vilkor som saknades" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixat till Entitryklasserna med vilkor som saknades" />
   </component>
 </project>
