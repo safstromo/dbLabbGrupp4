@@ -29,7 +29,7 @@ public class Saher {
                 case 0 -> printMenuOptions();
                 case 1 -> showAllClasses();
                 case 2 -> detailsOfClassToInput();
-                case 3 -> updateClass();
+                case 3 -> detailsOfClassToUpdate();
                 case 4 -> detailsOfClassToDelete();
                 case 5 -> detailsOfClassToSearch();
                 case 6 -> numberOfClasses();
@@ -85,7 +85,7 @@ public class Saher {
         System.out.println("New class/program successfully added!");
     }
 
-    private static void updateClass() {
+    private static void detailsOfClassToUpdate() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         showAllClasses();
         System.out.println("Enter the ID of the class/program to update");
@@ -95,12 +95,7 @@ public class Saher {
         entityManager.getTransaction().begin();
         ClassEntity classEntity = entityManager.find(ClassEntity.class, classIdToUpdate);
 
-        System.out.println("""
-                What would you like to update?
-                1- Class name
-                2- Duration of the class
-                3- School to which the class belongs""");
-        int inputChoice = sc.nextInt();
+        int inputChoice = getInputChoice();
 
         switch (inputChoice) {
             case 1 -> updateClassName(classEntity);
@@ -112,6 +107,15 @@ public class Saher {
 
         System.out.println("Class successfully updated!");
 
+    }
+
+    private static int getInputChoice() {
+        System.out.println("""
+                What would you like to update?
+                1- Class name
+                2- Duration of the class
+                3- School to which the class belongs""");
+        return sc.nextInt();
     }
 
     private static void updateClassName(ClassEntity classEntity) {
