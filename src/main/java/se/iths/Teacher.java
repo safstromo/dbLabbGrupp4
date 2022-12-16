@@ -8,12 +8,34 @@ import java.util.Scanner;
 
 public class Teacher {
 	static Scanner sc = new Scanner(System.in);
+	static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+
+	public static void main(String[] args) {
+		teacherMenu();
+	}
+
+	private static void teacherMenu() {
+		boolean menu = true;
+		while (menu) {
+			printTeacherMenu();
+			switch (sc.nextLine()) {
+				case "1" -> printAllTeachers();
+				case "2" -> findTeacherByName();
+				case "3" -> addTeacher();
+				case "4" -> updateTeacherMenu();
+				case "5" -> deleteTeacher();
+				case "e", "E" -> {
+					entityManagerFactory.close();
+					menu = false;
+				}
+			}
+		}
+	}
 
 
 	public static void findTeacherByName() {
 		System.out.println("Enter the name you want to search for: ");
 		String inputName = sc.nextLine();
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		Query query = entityManager.createQuery("SELECT teacher FROM TeacherEntity teacher WHERE teacher.teacherName ='" + inputName + "'");
@@ -22,14 +44,13 @@ public class Teacher {
 	}
 
 	public static void deleteTeacher() {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		String input = getTeacherIDFromUser();
 		TeacherEntity teacher = entityManager.find(TeacherEntity.class, input);
 		System.out.println(teacher.getTeacherName() + " deleted...");
 		entityManager.remove(teacher);
-		commitSQL(entityManagerFactory, entityManager);
+		commitSQL(entityManager);
 
 
 	}
@@ -51,13 +72,12 @@ public class Teacher {
 	}
 
 	private static void updateTeacher(String teacherId, String menuChoice, String updatedValue) {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		TeacherEntity teacher = entityManager.find(TeacherEntity.class, teacherId);
 		updateChoice(menuChoice, updatedValue, teacher);
 		entityManager.persist(teacher);
-		commitSQL(entityManagerFactory, entityManager);
+		commitSQL(entityManager);
 		System.out.println(updatedValue + " updated");
 	}
 
@@ -70,13 +90,12 @@ public class Teacher {
 
 
 	public static void addTeacher() {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		TeacherEntity teacher = new TeacherEntity();
 		getTeacherValues(teacher);
 		entityManager.persist(teacher);
-		commitSQL(entityManagerFactory, entityManager);
+		commitSQL(entityManager);
 
 
 	}
@@ -93,7 +112,6 @@ public class Teacher {
 	}
 
 	public static void printAllTeachers() {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		Query query = entityManager.createQuery("SELECT teachers FROM TeacherEntity teachers");
@@ -102,10 +120,9 @@ public class Teacher {
 	}
 
 
-	private static void commitSQL(EntityManagerFactory entityManagerFactory, EntityManager entityManager) {
+	private static void commitSQL(EntityManager entityManager) {
 		entityManager.getTransaction().commit();
 		entityManager.close();
-		entityManagerFactory.close();
 	}
 
 	private static void printUpdateSwitch() {
@@ -123,4 +140,18 @@ public class Teacher {
 		else list.forEach(System.out::println);
 	}
 
+
+	private static void printTeacherMenu() {
+		System.out.println("""
+					
+				Teacher menu:
+				=============
+				1. Show all teachers
+				2. Search for teacher
+				3. Add teacher
+				4. Update teacher
+				5. Delete teacher
+				e. Exit menu
+				""");
+	}
 }
