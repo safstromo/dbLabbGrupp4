@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cfc2818-4ac3-4e81-b3a5-4355b3c53288" name="Changes" comment="Robert Test">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CourseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CourseEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/Anton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/Anton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
@@ -53,6 +53,26 @@
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="entity" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Anton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="se.iths.Anton" />
+      <module name="dbLabbGrupp4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Anton" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -106,7 +126,13 @@
       <option name="project" value="LOCAL" />
       <updated>1671020385277</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Robert Test">
+      <created>1671112322064</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1671112322064</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,8 +154,18 @@
     <MESSAGE value="UML diagram" />
     <MESSAGE value="Lägga till UML diagram" />
     <MESSAGE value="skapa tabellerna" />
-    <MESSAGE value="Robert Test" />
     <MESSAGE value="SQl unique" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQl unique" />
+    <MESSAGE value="Robert Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Robert Test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

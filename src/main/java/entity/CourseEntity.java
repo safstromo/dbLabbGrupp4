@@ -1,7 +1,7 @@
 package entity;
 
 import jakarta.persistence.*;
-import org.testng.annotations.Test;
+
 
 @Entity
 @NamedQuery(query = "SELECT b from CourseEntity b WHERE b.courseName = :name", name = "classNameQuery")
