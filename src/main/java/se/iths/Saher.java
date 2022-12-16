@@ -10,53 +10,51 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Saher {
-    //TODO CLASS
+
     private static Scanner sc = new Scanner(System.in);
+    static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+    static EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public static void main(String[] args) {
         menu();
     }
 
     public static void menu() {
-        System.out.println("Welcome to the CLASS DATABASE \n" +
-                "Choose from the options below \n" +
-                "1 - View all the classes/programs available in the database \n" +
-                "2 - Add a new class/program \n" +
-                "3 - Update an existing class/program \n" +
-                "4 - Delete a class/program from database \n" +
-                "5 - Search for a class/program \n" +
-                "6 - Number of classes/programs in the database");
-        int inputChoice = sc.nextInt();
-        switch (inputChoice) {
-            case 1 -> showAllClasses();
-            case 2 -> detailsOfClassToInput();
-            case 3 -> updateClass();
-            case 4 -> deleteClass();
-            case 5 -> searchClass();
-            case 6 -> numberOfClasses();
+        int inputChoice;
+        System.out.println("Welcome to the CLASS DATABASE");
+        while(true) {
+            System.out.println("Press 0 to see menu");
+            inputChoice = sc.nextInt();
+
+            switch (inputChoice) {
+                case 0 -> printMenuOptions();
+                case 1 -> showAllClasses();
+                case 2 -> detailsOfClassToInput();
+                case 3 -> updateClass();
+                case 4 -> deleteClass();
+                case 5 -> searchClass();
+                case 6 -> numberOfClasses();
+                case 7 -> exitProgram();
+                default -> System.out.println("Invalid choice. Try again.");
+            }
         }
     }
 
-    private static void numberOfClasses() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        Query query = entityManager.createQuery("SELECT COUNT(class.classId) FROM ClassEntity class");
-
-        System.out.println("There are " + query.getSingleResult() + " available in our database");
+    private static void printMenuOptions() {
+        System.out.println("""
+                Choose from the options below
+                1 - View all the classes/programs available in the database
+                2 - Add a new class/program
+                3 - Update an existing class/program
+                4 - Delete a class/program from database
+                5 - Search for a class/program
+                6 - Number of classes/programs available in the database""");
     }
 
-    private static void searchClass() {
-        System.out.println("Input name of class/program to search");
-        String inputClassName = sc.nextLine();
+    private static void showAllClasses() {
+        Query query = entityManager.createQuery("SELECT classes FROM ClassEntity classes");
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-
-        Query query = entityManager.createQuery("SELECT class FROM ClassEntity class where class.className = '" + inputClassName + "'");
-
-        List listOfClasses = query.getResultList();
+        List<ClassEntity> listOfClasses = query.getResultList();
         if (listOfClasses.isEmpty()) {
             System.out.println("No classes available to show");
         } else {
@@ -77,8 +75,6 @@ public class Saher {
     }
 
     private static void addNewClass(String className, int classDuration, int classSchoolID) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         ClassEntity newClass = new ClassEntity();
 
@@ -95,11 +91,19 @@ public class Saher {
         System.out.println("New class/program successfully added!");
     }
 
-    private static void showAllClasses() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+    private static void numberOfClasses() {
+        Query query = entityManager.createQuery("SELECT COUNT(class.classId) FROM ClassEntity class");
 
-        Query query = entityManager.createQuery("SELECT classes FROM ClassEntity classes");
+        System.out.println("There are " + query.getSingleResult() + " available in our database");
+    }
+
+    private static void searchClass() {
+        System.out.println("Input name of class/program to search");
+        String inputClassName = sc.nextLine();
+
+        entityManager.getTransaction().begin();
+
+        Query query = entityManager.createQuery("SELECT class FROM ClassEntity class where class.className = '" + inputClassName + "'");
 
         List listOfClasses = query.getResultList();
         if (listOfClasses.isEmpty()) {
@@ -115,8 +119,6 @@ public class Saher {
         int classIdToUpdate = sc.nextInt();
         sc.nextLine();
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         ClassEntity classEntity = entityManager.find(ClassEntity.class, classIdToUpdate);
 
@@ -174,14 +176,16 @@ public class Saher {
         int classIdToDelete = sc.nextInt();
         sc.nextLine();
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         ClassEntity classEntity = entityManager.find(ClassEntity.class, classIdToDelete);
         entityManager.remove(classEntity);
         entityManager.getTransaction().commit();
         entityManager.close();
-        entityManagerFactory.close();
+
         System.out.println("Class successfully deleted!");
+    }
+
+    private static void exitProgram() {
+        entityManagerFactory.close();
     }
 }
