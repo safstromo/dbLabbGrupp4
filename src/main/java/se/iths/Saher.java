@@ -20,14 +20,17 @@ public class Saher {
         System.out.println("Welcome to the CLASS DATABASE \n" +
                 "Choose from the options below \n" +
                 "1 - View all the classes/programs available in the database \n" +
-                "2 - Add a new class/program");
+                "2 - Add a new class/program \n" +
+                "3 - Update an existing class/program");
         int inputChoice = sc.nextInt();
         switch (inputChoice) {
             case 1 -> showAllClasses();
+            case 2 -> detailsOfClassToInput();
+            case 3 -> updateClass();
         }
     }
 
-    private static void detailsOfclassToInput(){
+    private static void detailsOfClassToInput() {
         System.out.println("Input name of class/program: ");
         String inputName = sc.nextLine();
         System.out.println("Input duration of the class/program: ");
@@ -65,29 +68,50 @@ public class Saher {
         Query query = entityManager.createQuery("SELECT classes FROM ClassEntity classes");
 
         var listOfClasses = query.getResultList();
-        if(listOfClasses.isEmpty())
+        if (listOfClasses.isEmpty()) {
             System.out.println("No classes available to show");
-        else listOfClasses.forEach(System.out::println);
+        } else {
+            listOfClasses.forEach(System.out::println);
+        }
     }
 
-    private static void updateClass(){
+    private static void updateClass() {
         System.out.println("Enter the ID of the class to update");
         int classIdToUpdate = sc.nextInt();
         sc.nextLine();
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        ClassEntity classEntity = entityManager.find(ClassEntity.class, classIdToUpdate);
+
         System.out.println("What would you like to update? \n" +
                 "1- Class name \n" +
                 "2- Duration of the class \n" +
                 "3- School to which the class belongs");
         int inputChoice = sc.nextInt();
+
         switch (inputChoice) {
-            case 1 -> updateClassName();
-            case 2 -> updateClassDuration();
-            case 3 -> updateClassSchoolID();
+            case 1:
+                System.out.println("Write the new name for the class");
+                String newClassName = sc.nextLine();
+                classEntity.setClassName(newClassName);
+
+                break;
+            //updateClassName();
+            case 2:
+                System.out.println("Write the new duration for the class");
+                int newClassDuration = sc.nextInt();
+                classEntity.setDuration(newClassDuration);
+
+                break; //updateClassDuration();
+            case 3:
+                System.out.println("Which school does the class/program belong to? Enter the new school ID: ");
+                int newClassSchoolID = sc.nextInt();
+                classEntity.setClassSchoolIdfk(newClassSchoolID);
+
+                break; //updateClassSchoolID();
         }
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        ClassEntity classEntity = entityManager.find( ClassEntity.class, classIdToUpdate );
 
         entityManager.persist(classEntity);
         entityManager.getTransaction().commit();
@@ -107,7 +131,10 @@ public class Saher {
     }
 
     private static void updateClassName() {
-        System.out.println("Write the new name for the class");
+
     }
 
+    private static void deleteClass() {
+
+    }
 }
