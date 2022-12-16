@@ -88,13 +88,27 @@ public class Saher {
     private static void detailsOfClassToUpdate() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         showAllClasses();
-        System.out.println("Enter the ID of the class/program to update");
-        int classIdToUpdate = sc.nextInt();
-        sc.nextLine();
+        int classIdToUpdate = getClassId();
 
         entityManager.getTransaction().begin();
         ClassEntity classEntity = entityManager.find(ClassEntity.class, classIdToUpdate);
 
+        updateSwitch(classEntity);
+        entityManager.persist(classEntity);
+        handleEntityManager(entityManager);
+
+        System.out.println("Class successfully updated!");
+
+    }
+
+    private static int getClassId() {
+        System.out.println("Enter the ID of the class/program to update");
+        int classIdToUpdate = sc.nextInt();
+        sc.nextLine();
+        return classIdToUpdate;
+    }
+
+    private static void updateSwitch(ClassEntity classEntity) {
         int inputChoice = getInputChoice();
 
         switch (inputChoice) {
@@ -102,11 +116,6 @@ public class Saher {
             case 2 -> updateClassDuration(classEntity);
             case 3 -> updateClassSchoolID(classEntity);
         }
-        entityManager.persist(classEntity);
-        handleEntityManager(entityManager);
-
-        System.out.println("Class successfully updated!");
-
     }
 
     private static int getInputChoice() {
@@ -139,8 +148,7 @@ public class Saher {
 
     private static void detailsOfClassToDelete() {
         System.out.println("Enter the ID of the class to delete");
-        int classIdToDelete = sc.nextInt();
-        sc.nextLine();
+        int classIdToDelete = getClassId();
 
         deleteClass(classIdToDelete);
     }
