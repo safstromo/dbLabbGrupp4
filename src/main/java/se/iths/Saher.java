@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Saher {
 
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
     static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
     static EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -21,7 +21,7 @@ public class Saher {
 
     public static void menu() {
         int inputChoice;
-        System.out.println("Welcome to the CLASS DATABASE");
+        System.out.println("Welcome to the CLASS/PROGRAM DATABASE");
         while(true) {
             System.out.println("Press 0 to see menu");
             inputChoice = sc.nextInt();
@@ -93,10 +93,11 @@ public class Saher {
         entityManager.getTransaction().begin();
         ClassEntity classEntity = entityManager.find(ClassEntity.class, classIdToUpdate);
 
-        System.out.println("What would you like to update? \n" +
-                "1- Class name \n" +
-                "2- Duration of the class \n" +
-                "3- School to which the class belongs");
+        System.out.println("""
+                What would you like to update?
+                1- Class name
+                2- Duration of the class
+                3- School to which the class belongs""");
         int inputChoice = sc.nextInt();
 
         switch (inputChoice) {
@@ -150,13 +151,14 @@ public class Saher {
     private static void detailsOfClassToSearch() {
         System.out.println("Input name of class/program to search");
         String inputClassName = sc.nextLine();
+        sc.nextLine();
         searchClass(inputClassName);
     }
 
     private static void searchClass(String inputClassName) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("SELECT class FROM ClassEntity class where class.className = '" + inputClassName + "'");
-        List listOfClasses = query.getResultList();
+        Query query = entityManager.createQuery("SELECT class FROM ClassEntity class WHERE class.className = '" + inputClassName + "'");
+        var listOfClasses = query.getResultList();
         printListOfClasses(listOfClasses);
     }
 
