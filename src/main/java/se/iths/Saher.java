@@ -13,7 +13,6 @@ public class Saher {
 
     private static final Scanner sc = new Scanner(System.in);
     static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    static EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public static void main(String[] args) {
         menu();
@@ -52,6 +51,7 @@ public class Saher {
     }
 
     private static void showAllClasses() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         Query query = entityManager.createQuery("SELECT classes FROM ClassEntity classes");
 
         List<ClassEntity> listOfClasses = query.getResultList();
@@ -71,6 +71,7 @@ public class Saher {
     }
 
     private static void addNewClass(String className, int classDuration, int classSchoolID) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         ClassEntity newClass = new ClassEntity();
 
@@ -79,12 +80,13 @@ public class Saher {
         newClass.setClassSchoolIdfk(classSchoolID);
 
         entityManager.persist(newClass);
-        handleEntityManager();
+        handleEntityManager(entityManager);
 
         System.out.println("New class/program successfully added!");
     }
 
     private static void updateClass() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         showAllClasses();
         System.out.println("Enter the ID of the class/program to update");
         int classIdToUpdate = sc.nextInt();
@@ -106,7 +108,7 @@ public class Saher {
             case 3 -> updateClassSchoolID(classEntity);
         }
         entityManager.persist(classEntity);
-        handleEntityManager();
+        handleEntityManager(entityManager);
 
         System.out.println("Class successfully updated!");
 
@@ -140,10 +142,11 @@ public class Saher {
     }
 
     private static void deleteClass(int classIdToDelete) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         ClassEntity classEntity = entityManager.find(ClassEntity.class, classIdToDelete);
         entityManager.remove(classEntity);
-        handleEntityManager();
+        handleEntityManager(entityManager);
 
         System.out.println("Class/program successfully deleted!");
     }
@@ -156,6 +159,7 @@ public class Saher {
     }
 
     private static void searchClass(String inputClassName) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("SELECT class FROM ClassEntity class WHERE class.className = '" + inputClassName + "'");
         var listOfClasses = query.getResultList();
@@ -163,6 +167,7 @@ public class Saher {
     }
 
     private static void numberOfClasses() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         Query query = entityManager.createQuery("SELECT COUNT(class.classId) FROM ClassEntity class");
         System.out.println("There are " + query.getSingleResult() + " available in our database");
     }
@@ -175,7 +180,7 @@ public class Saher {
         }
     }
 
-    private static void handleEntityManager() {
+    private static void handleEntityManager(EntityManager entityManager) {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
