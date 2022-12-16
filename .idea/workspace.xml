@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d6d27ac-4079-4477-84d3-6446a57a1193" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/CourseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CourseEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/Saher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/Saher.java" afterDir="false" />
     </list>
@@ -85,7 +84,7 @@
       <updated>1670930683169</updated>
       <workItem from="1670930684270" duration="139000" />
       <workItem from="1670930834324" duration="745000" />
-      <workItem from="1671122682956" duration="10326000" />
+      <workItem from="1671122682956" duration="11330000" />
     </task>
     <task id="LOCAL-00001" summary="UML diagram">
       <created>1671009852610</created>
@@ -163,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671190669047</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fine tuning">
+      <created>1671192175150</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1671192175150</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +198,7 @@
     <MESSAGE value="showAllClasses method working" />
     <MESSAGE value="updateClass functionality" />
     <MESSAGE value="numberOfClass functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="numberOfClass functionality" />
+    <MESSAGE value="fine tuning" />
+    <option name="LAST_COMMIT_MESSAGE" value="fine tuning" />
   </component>
 </project>

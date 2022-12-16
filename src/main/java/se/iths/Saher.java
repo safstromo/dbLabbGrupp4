@@ -31,8 +31,8 @@ public class Saher {
                 case 1 -> showAllClasses();
                 case 2 -> detailsOfClassToInput();
                 case 3 -> updateClass();
-                case 4 -> deleteClass();
-                case 5 -> searchClass();
+                case 4 -> detailsOfClassToDelete();
+                case 5 -> detailsOfClassToSearch();
                 case 6 -> numberOfClasses();
                 case 7 -> exitProgram();
                 default -> System.out.println("Invalid choice. Try again.");
@@ -55,11 +55,7 @@ public class Saher {
         Query query = entityManager.createQuery("SELECT classes FROM ClassEntity classes");
 
         List<ClassEntity> listOfClasses = query.getResultList();
-        if (listOfClasses.isEmpty()) {
-            System.out.println("No classes available to show");
-        } else {
-            listOfClasses.forEach(System.out::println);
-        }
+        printListOfClasses(listOfClasses);
     }
 
     private static void detailsOfClassToInput() {
@@ -82,35 +78,10 @@ public class Saher {
         newClass.setDuration(classDuration);
         newClass.setClassSchoolIdfk(classSchoolID);
 
-
         entityManager.persist(newClass);
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();
+        handleEntityManager();
 
         System.out.println("New class/program successfully added!");
-    }
-
-    private static void numberOfClasses() {
-        Query query = entityManager.createQuery("SELECT COUNT(class.classId) FROM ClassEntity class");
-
-        System.out.println("There are " + query.getSingleResult() + " available in our database");
-    }
-
-    private static void searchClass() {
-        System.out.println("Input name of class/program to search");
-        String inputClassName = sc.nextLine();
-
-        entityManager.getTransaction().begin();
-
-        Query query = entityManager.createQuery("SELECT class FROM ClassEntity class where class.className = '" + inputClassName + "'");
-
-        List listOfClasses = query.getResultList();
-        if (listOfClasses.isEmpty()) {
-            System.out.println("No classes available to show");
-        } else {
-            listOfClasses.forEach(System.out::println);
-        }
     }
 
     private static void updateClass() {
@@ -129,60 +100,82 @@ public class Saher {
         int inputChoice = sc.nextInt();
 
         switch (inputChoice) {
-            case 1:
-                System.out.println("Write the new name for the class");
-                String newClassName = sc.nextLine();
-                classEntity.setClassName(newClassName);
-
-                break;
-            //updateClassName();
-            case 2:
-                System.out.println("Write the new duration for the class");
-                int newClassDuration = sc.nextInt();
-                classEntity.setDuration(newClassDuration);
-
-                break; //updateClassDuration();
-            case 3:
-                System.out.println("Which school does the class/program belong to? Enter the new school ID: ");
-                int newClassSchoolID = sc.nextInt();
-                classEntity.setClassSchoolIdfk(newClassSchoolID);
-
-                break; //updateClassSchoolID();
+            case 1 -> updateClassName(classEntity);
+            case 2 -> updateClassDuration(classEntity);
+            case 3 -> updateClassSchoolID(classEntity);
         }
-
         entityManager.persist(classEntity);
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();
+        handleEntityManager();
 
         System.out.println("Class successfully updated!");
 
     }
 
-    private static void updateClassSchoolID() {
+    private static void updateClassName(ClassEntity classEntity) {
+        System.out.println("Write the new name for the class");
+        String newClassName = sc.nextLine();
+        classEntity.setClassName(newClassName);
 
     }
 
-    private static void updateClassDuration() {
-
+    private static void updateClassDuration(ClassEntity classEntity) {
+        System.out.println("Write the new duration for the class");
+        int newClassDuration = sc.nextInt();
+        classEntity.setDuration(newClassDuration);
     }
 
-    private static void updateClassName() {
-
+    private static void updateClassSchoolID(ClassEntity classEntity) {
+        System.out.println("Which school does the class/program belong to? Enter the new school ID: ");
+        int newClassSchoolID = sc.nextInt();
+        classEntity.setClassSchoolIdfk(newClassSchoolID);
     }
 
-    private static void deleteClass() {
+    private static void detailsOfClassToDelete() {
         System.out.println("Enter the ID of the class to delete");
         int classIdToDelete = sc.nextInt();
         sc.nextLine();
 
+        deleteClass(classIdToDelete);
+    }
+
+    private static void deleteClass(int classIdToDelete) {
         entityManager.getTransaction().begin();
         ClassEntity classEntity = entityManager.find(ClassEntity.class, classIdToDelete);
         entityManager.remove(classEntity);
+        handleEntityManager();
+
+        System.out.println("Class/program successfully deleted!");
+    }
+
+    private static void detailsOfClassToSearch() {
+        System.out.println("Input name of class/program to search");
+        String inputClassName = sc.nextLine();
+        searchClass(inputClassName);
+    }
+
+    private static void searchClass(String inputClassName) {
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("SELECT class FROM ClassEntity class where class.className = '" + inputClassName + "'");
+        List listOfClasses = query.getResultList();
+        printListOfClasses(listOfClasses);
+    }
+
+    private static void numberOfClasses() {
+        Query query = entityManager.createQuery("SELECT COUNT(class.classId) FROM ClassEntity class");
+        System.out.println("There are " + query.getSingleResult() + " available in our database");
+    }
+
+    private static void printListOfClasses(List listOfClasses) {
+        if (listOfClasses.isEmpty()) {
+            System.out.println("No classes/programs available to show");
+        } else {
+            listOfClasses.forEach(System.out::println);
+        }
+    }
+
+    private static void handleEntityManager() {
         entityManager.getTransaction().commit();
         entityManager.close();
-
-        System.out.println("Class successfully deleted!");
     }
 
     private static void exitProgram() {
