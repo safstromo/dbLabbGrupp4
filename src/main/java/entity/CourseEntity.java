@@ -1,8 +1,12 @@
 package entity;
 
 import jakarta.persistence.*;
+import org.testng.annotations.Test;
 
 @Entity
+@NamedQuery(query = "SELECT b from CourseEntity b WHERE b.courseName = :name", name = "classNameQuery")
+@NamedQuery(query = "SELECT b from CourseEntity b WHERE b.room= :room", name = "classRoomQuery")
+@NamedQuery(query = "SELECT b from CourseEntity b WHERE b.courseId= :courseId", name = "courseCount")
 @Table(name = "course", schema = "dblabbgrupp4", catalog = "")
 public class CourseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -111,4 +115,18 @@ public class CourseEntity {
     public void setTeacherByCourseTeacherIdfk(TeacherEntity teacherByCourseTeacherIdfk) {
         this.teacherByCourseTeacherIdfk = teacherByCourseTeacherIdfk;
     }
+
+    @Override
+    public String toString() {
+        return "CourseEntity{" +
+                "courseId=" + courseId +
+                ", courseName='" + courseName + '\'' +
+                ", room='" + room + '\'' +
+                ", courseClassIdfk=" + courseClassIdfk +
+                ", courseTeacherIdfk=" + courseTeacherIdfk +
+                ", clazzByCourseClassIdfk=" + clazzByCourseClassIdfk +
+                ", teacherByCourseTeacherIdfk=" + teacherByCourseTeacherIdfk +
+                '}';
+    }
+
 }
