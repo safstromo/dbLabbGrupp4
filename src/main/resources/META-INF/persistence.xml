@@ -14,7 +14,7 @@
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dbLabbGrupp4"/>
 			<property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="hibernate.connection.username" value="root"/>
-			<property name="hibernate.connection.password" value="!2345Sex"/>
+			<property name="hibernate.connection.password" value="Study.8111991"/>
 		</properties>
 	</persistence-unit>
 </persistence>

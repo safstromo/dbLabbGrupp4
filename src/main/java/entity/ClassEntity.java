@@ -19,7 +19,7 @@ public class ClassEntity {
     @Column(name = "classSchoolIDFK", nullable = true)
     private Integer classSchoolIdfk;
     @ManyToOne
-    @JoinColumn(name = "classSchoolIDFK", referencedColumnName = "schoolID", insertable = false,updatable = false)
+    @JoinColumn(name = "classSchoolIDFK", referencedColumnName = "schoolID", insertable = false, updatable = false)
     private SchoolEntity schoolByClassSchoolIdfk;
 
     public int getClassId() {
@@ -85,5 +85,16 @@ public class ClassEntity {
 
     public void setSchoolByClassSchoolIdfk(SchoolEntity schoolByClassSchoolIdfk) {
         this.schoolByClassSchoolIdfk = schoolByClassSchoolIdfk;
+    }
+
+    @Override
+    public String toString() {
+        return "ClassEntity{" +
+                "classId=" + classId +
+                ", className='" + className + '\'' +
+                ", duration=" + duration +
+                ", classSchoolIdfk=" + classSchoolIdfk +
+                ", schoolByClassSchoolIdfk=" + schoolByClassSchoolIdfk +
+                '}';
     }
 }
