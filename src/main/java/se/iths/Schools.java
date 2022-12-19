@@ -106,7 +106,7 @@ public class Schools {
 		System.out.println("Type the adress of the school");
 		String inputAdress = scanner.nextLine();
 		addSchool(inputName, inputAdress);
-		scanner.nextLine();
+
 
 
 	}
@@ -121,16 +121,17 @@ public class Schools {
 		entityManager.persist(schoolEntity);
 		entitymanagerMethods(entityManager);
 		System.out.println("The school have been updated to " + updateName + "!");
-		scanner.nextLine();
+
 	}
 
 	private static void inputToUpdateSchool() {
 
 		showAllSchools();
+
 		System.out.println("Enter the ID number of the school you want to update: ");
 		int updateId = scanner.nextInt();
 		scanner.nextLine();
-		System.out.println("New school: ");
+		System.out.println("New name: ");
 		String updateName = scanner.nextLine();
 		System.out.println("New adress: ");
 		String updateAdress = scanner.nextLine();
@@ -147,7 +148,7 @@ public class Schools {
 		entityManager.remove(schoolEntity);
 		entitymanagerMethods(entityManager);
 		System.out.println(schoolEntity.getSchoolName() + " is deleted!");
-		scanner.nextLine();
+
 
 
 	}
@@ -155,6 +156,7 @@ public class Schools {
 	private static void deleteDetails() {
 
 		showAllSchools();
+		
 		System.out.println("Type the ID of the school you want to remove:");
 		int inputId = scanner.nextInt();
 		deleteSchool(inputId);

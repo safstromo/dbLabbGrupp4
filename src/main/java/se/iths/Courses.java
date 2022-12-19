@@ -18,6 +18,8 @@ public class Courses {
 	find name -> show table before
 	find room -> show table before
 	update course -> show table before
+	7 -> show table before -> english
+	7 -> man tabort med ID, printa innan
 	 */
 
 	private static final Scanner scanner = new Scanner(System.in);
