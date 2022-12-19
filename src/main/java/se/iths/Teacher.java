@@ -10,11 +10,8 @@ public class Teacher {
 	static Scanner sc = new Scanner(System.in);
 	static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 
-	public static void main(String[] args) {
-		teacherMenu();
-	}
 
-	private static void teacherMenu() {
+	public static void teacherMenu() {
 		boolean menu = true;
 		while (menu) {
 			printTeacherMenu();
@@ -24,7 +21,7 @@ public class Teacher {
 				case "3" -> addTeacher();
 				case "4" -> updateTeacherMenu();
 				case "5" -> deleteTeacher();
-				case "e", "E" -> {
+				case "6" -> {
 					entityManagerFactory.close();
 					menu = false;
 				}
@@ -145,13 +142,14 @@ public class Teacher {
 		System.out.println("""
 					
 				Teacher menu:
-				=============
+				===============================
 				1. Show all teachers
 				2. Search for teacher
 				3. Add teacher
 				4. Update teacher
 				5. Delete teacher
-				e. Exit menu
+				6. Exit menu
+				===============================
 				""");
 	}
 }

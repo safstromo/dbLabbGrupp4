@@ -2,7 +2,6 @@ package entity;
 
 import jakarta.persistence.*;
 
-
 @Entity
 @NamedQuery(query = "SELECT b from CourseEntity b WHERE b.courseName = :name", name = "classNameQuery")
 @NamedQuery(query = "SELECT b from CourseEntity b WHERE b.room= :room", name = "classRoomQuery")

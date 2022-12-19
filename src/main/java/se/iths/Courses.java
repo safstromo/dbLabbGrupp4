@@ -9,13 +9,14 @@ import jakarta.persistence.Query;
 import java.util.List;
 import java.util.Scanner;
 
-public class Robert {
+public class Courses {
 
     private static final Scanner scanner = new Scanner(System.in);
 
 
-    public static void main(String[] args) {
 
+
+    public static void menu() {
         boolean quit = false;
         printActions();
         while (!quit) {
@@ -44,16 +45,16 @@ public class Robert {
     private static void printActions() {
         System.out.println("\nVälj:\n");
         System.out.println("""
-                0  - Stäng av
-                1  - Visa alla tabeller
-                2  - Visa en kurs
-                3  - Söka kurs genom namn
-                4  - Söka kurs genom room
-                5  - Lägg till en kurs
-                6  - Uppdatera en kurs
-                7  - Ta bort en kurs
-                8  - Räkna hur många kurs finns
-                9  - Visa en lista över alla val.""");
+                0. Exit
+                1. Show all courses
+                2. Find course by course ID
+                3. Find course by name 
+                4. Find course by room
+                5. Add a course
+                6. Update a course
+                7. Remove a course
+                8. Count number of courses
+                9. Show menu.""");
     }
 
     private static void showOneCourse() {

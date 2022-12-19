@@ -14,9 +14,8 @@ public class Student {
     private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
     private static EntityManager entityManager = entityManagerFactory.createEntityManager();
     private static Scanner sc = new Scanner(System.in);
-    public static void main(String[] args) {
 
-
+    public static void studentMenu() {
         boolean quit = false;
         while (!quit) {
             printMenu();
@@ -29,20 +28,18 @@ public class Student {
                 case 3 -> showAllStudents();
                 case 4 -> updateStudent();
                 case 5 -> deleteStudent();
-                case 6 -> System.exit(0);
+                case 6 -> quit = true;
 
             }
-            System.out.println("Press enter to go back to the menu");
-            sc.nextLine();
-        }
 
         }
+    }
 
 
     public static void printMenu() {
         System.out.println();
         System.out.println();
-        System.out.println("Choose an option");
+        System.out.println("Student Menu");
         System.out.println("===============================");
         System.out.println("1. Add new student");
         System.out.println("2. Find students by name");
@@ -50,6 +47,7 @@ public class Student {
         System.out.println("4. Update student information");
         System.out.println("5. Remove a student");
         System.out.println("6. Exit program");
+        System.out.println("===============================");
     }
 
     private static void showAllStudents() {

@@ -41,7 +41,7 @@ CREATE TABLE student
 
 CREATE TABLE course
 (
-    courseID          INT NOT NULL UNIQUE,
+    courseID          INT NOT NULL AUTO_INCREMENT,
     courseName        VARCHAR(50),
     room              VARCHAR(50),
     courseClassIDFK   INT,
