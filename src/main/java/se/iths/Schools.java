@@ -19,13 +19,13 @@ public class Schools {
 		System.out.println("""
 					School Menu
 					===============================
+					0. Print school menu 
 					1. Show all schools 
-					2. Search for a school
-					3. Add a new school
+					2. Add a new school
+					3. Search for a school
 					4. Update a school
 					5. Delete a school
-					6. Show the alternatives again
-					7. Back to main menu
+					6. Back to main menu
 					===============================
 					""");
 
@@ -40,13 +40,13 @@ public class Schools {
 			int response = scanner.nextInt();
 
 			switch (response) {
+				case 0 -> schoolmenu();
 				case 1 -> showAllSchools();
-				case 2 -> searchSchools();
-				case 3 -> inputToNewSchool();
+				case 2 -> inputToNewSchool();
+				case 3 -> searchSchools();
 				case 4 -> inputToUpdateSchool();
 				case 5 -> deleteDetails();
-				case 6 -> schoolmenu();
-				case 7 -> {
+				case 6 -> {
 					closeProgram();
 					exist = true;
 				}

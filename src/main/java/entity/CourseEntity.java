@@ -26,7 +26,7 @@ public class CourseEntity {
     private Integer courseTeacherIdfk;
     @ManyToOne
     @JoinColumn(name = "courseClassIDFK", referencedColumnName = "classID",insertable = false,updatable = false)
-    private ClassEntity clazzByCourseClassIdfk;
+    private ProgramEntity clazzByCourseClassIdfk;
     @ManyToOne
     @JoinColumn(name = "courseTeacherIDFK", referencedColumnName = "teacherID", insertable = false,updatable = false)
     private TeacherEntity teacherByCourseTeacherIdfk;
@@ -99,11 +99,11 @@ public class CourseEntity {
         return result;
     }
 
-    public ClassEntity getClazzByCourseClassIdfk() {
+    public ProgramEntity getClazzByCourseClassIdfk() {
         return clazzByCourseClassIdfk;
     }
 
-    public void setClazzByCourseClassIdfk(ClassEntity clazzByCourseClassIdfk) {
+    public void setClazzByCourseClassIdfk(ProgramEntity clazzByCourseClassIdfk) {
         this.clazzByCourseClassIdfk = clazzByCourseClassIdfk;
     }
 

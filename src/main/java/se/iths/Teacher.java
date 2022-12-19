@@ -22,7 +22,8 @@ public class Teacher {
 				case "3" -> findTeacherByName();
 				case "4" -> updateTeacherMenu();
 				case "5" -> deleteTeacher();
-				case "6" -> {
+				case "6" -> numberOfTeachers();
+				case "7" -> {
 					entityManagerFactory.close();
 					menu = false;
 				}
@@ -116,6 +117,11 @@ public class Teacher {
 		printQuery(query);
 
 	}
+	private static void numberOfTeachers() {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		Query query = entityManager.createQuery("SELECT COUNT(class.teacherId) FROM TeacherEntity class");
+		System.out.println("There are " + query.getSingleResult() + " available in our database");
+	}
 
 
 	private static void commitSQL(EntityManager entityManager) {
@@ -150,7 +156,8 @@ public class Teacher {
 				3. Search for teacher
 				4. Update teacher
 				5. Delete teacher
-				6. Back to main menu
+				6. Show number of teachers
+				7. Back to main menu
 				===============================
 				""");
 	}
