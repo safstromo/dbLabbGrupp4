@@ -9,7 +9,7 @@ import jakarta.persistence.Query;
 import java.util.List;
 import java.util.Scanner;
 
-public class Saher {
+public class Program {
 
     private static final Scanner sc = new Scanner(System.in);
     static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -20,7 +20,7 @@ public class Saher {
 
     public static void menu() {
         int inputChoice;
-        System.out.println("Welcome to the CLASS/PROGRAM DATABASE");
+        System.out.println("Welcome to the PROGRAM DATABASE");
         while(true) {
             System.out.println("Press 0 to see menu");
             inputChoice = sc.nextInt();
@@ -43,12 +43,12 @@ public class Saher {
     private static void printMenuOptions() {
         System.out.println("""
                 Choose from the options below
-                1 - View all the classes/programs available in the database
-                2 - Add a new class/program
-                3 - Update an existing class/program
-                4 - Delete a class/program from database
-                5 - Search for a class/program
-                6 - Number of classes/programs available in the database""");
+                1 - View all the programs available in the database
+                2 - Add a new program
+                3 - Update an existing program
+                4 - Delete a program from database
+                5 - Search for a program
+                6 - Number of programs available in the database""");
     }
 
     private static void showAllClasses() {
@@ -60,12 +60,12 @@ public class Saher {
     }
 
     private static void detailsOfClassToInput() {
-        System.out.println("Input name of class/program: ");
+        System.out.println("Input name of program: ");
         String inputName = sc.nextLine();
-        System.out.println("Input duration of the class/program: ");
+        System.out.println("Input duration of the program: ");
         int durationInput = sc.nextInt();
         sc.nextLine();
-        System.out.println("Which school does the class/program belong to? Enter the school ID: ");
+        System.out.println("Which school does the program belong to? Enter the school ID: ");
         int schoolIDInput = sc.nextInt();
         addNewClass(inputName, durationInput, schoolIDInput);
         sc.nextLine();
@@ -83,7 +83,7 @@ public class Saher {
         entityManager.persist(newClass);
         handleEntityManager(entityManager);
 
-        System.out.println("New class/program successfully added!");
+        System.out.println("New program successfully added!");
     }
 
     private static void detailsOfClassToUpdate() {
@@ -98,12 +98,12 @@ public class Saher {
         entityManager.persist(classEntity);
         handleEntityManager(entityManager);
 
-        System.out.println("Class successfully updated!");
+        System.out.println("Program successfully updated!");
 
     }
 
     private static int getClassId() {
-        System.out.println("Enter the ID of the class/program:");
+        System.out.println("Enter the ID of the program:");
         int classIdToUpdate = sc.nextInt();
         sc.nextLine();
         return classIdToUpdate;
@@ -122,33 +122,33 @@ public class Saher {
     private static int getInputChoice() {
         System.out.println("""
                 What would you like to update?
-                1- Class name
-                2- Duration of the class
-                3- School to which the class belongs""");
+                1- Program name
+                2- Duration of the program
+                3- School to which the program belongs""");
         return sc.nextInt();
     }
 
     private static void updateClassName(ClassEntity classEntity) {
-        System.out.println("Write the new name for the class");
+        System.out.println("Write the new name for the program");
         String newClassName = sc.nextLine();
         classEntity.setClassName(newClassName);
 
     }
 
     private static void updateClassDuration(ClassEntity classEntity) {
-        System.out.println("Write the new duration for the class");
+        System.out.println("Write the new duration for the program");
         int newClassDuration = sc.nextInt();
         classEntity.setDuration(newClassDuration);
     }
 
     private static void updateClassSchoolID(ClassEntity classEntity) {
-        System.out.println("Which school does the class/program belong to? Enter the new school ID: ");
+        System.out.println("Which school does the program belong to? Enter the new school ID: ");
         int newClassSchoolID = sc.nextInt();
         classEntity.setClassSchoolIdfk(newClassSchoolID);
     }
 
     private static void detailsOfClassToDelete() {
-        System.out.println("Enter the ID of the class to delete");
+        System.out.println("Enter the ID of the program to delete");
         int classIdToDelete = getClassId();
         sc.nextLine();
 
@@ -162,11 +162,11 @@ public class Saher {
         entityManager.remove(classEntity);
         handleEntityManager(entityManager);
 
-        System.out.println("Class/program successfully deleted!");
+        System.out.println("Program successfully deleted!");
     }
 
     private static void detailsOfClassToSearch() {
-        System.out.println("Input name of class/program to search");
+        System.out.println("Input name of program to search");
         String inputClassName = sc.nextLine();
         searchClass(inputClassName);
     }
@@ -187,7 +187,7 @@ public class Saher {
 
     private static void printListOfClasses(List listOfClasses) {
         if (listOfClasses.isEmpty()) {
-            System.out.println("No classes/programs available to show");
+            System.out.println("No programs available to show");
         } else {
             listOfClasses.forEach(System.out::println);
         }
