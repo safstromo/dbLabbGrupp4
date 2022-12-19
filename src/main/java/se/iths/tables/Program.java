@@ -25,7 +25,7 @@ public class Program {
 
 			switch (inputChoice) {
 				case 0 -> printMenuOptions();
-				case 1 -> showAllClasses();
+				case 1 -> showAllClasses2();
 				case 2 -> detailsOfClassToInput();
 				case 3 -> detailsOfClassToSearch();
 				case 4 -> detailsOfClassToUpdate();
@@ -43,9 +43,9 @@ public class Program {
 				===============================
 				Choose from the options below
 				0. Print Program menu
-				1. Show all programs 
+				1. Show all programs
 				2. Add new program
-				3. Search for program 
+				3. Search for program
 				4. Update a program
 				5. Remove a program
 				6. Show number of programs available
@@ -63,6 +63,16 @@ public class Program {
 	}
 
 	private static void showAllClasses2() {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		Query query = entityManager.createQuery("SELECT classes FROM ProgramEntity classes");
+
+
+		List<ProgramEntity> list = query.getResultList( );
+		System.out.println(list.size());
+		for( ProgramEntity p:list ){
+			System.out.println("ID: " + p.getClassId() + " | Name: " + p.getClassName() + " | School: " + p.getSchoolByClassSchoolIdfk().getSchoolName());
+		}
 
 	}
 

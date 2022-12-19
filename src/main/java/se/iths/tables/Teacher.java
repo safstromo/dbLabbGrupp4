@@ -50,8 +50,6 @@ public class Teacher {
 		System.out.println(teacher.getTeacherName() + " deleted...");
 		entityManager.remove(teacher);
 		commitSQL(entityManager);
-
-
 	}
 
 	public static void updateTeacherMenu() {
@@ -110,13 +108,13 @@ public class Teacher {
 
 	}
 
-	public static void printAllTeachers() {
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		public static void printAllTeachers() {
+			EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-		Query query = entityManager.createQuery("SELECT teachers FROM TeacherEntity teachers");
-		printQuery(query);
+			Query query = entityManager.createQuery("SELECT teachers FROM TeacherEntity teachers");
+			printQuery(query);
 
-	}
+		}
 	private static void numberOfTeachers() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		Query query = entityManager.createQuery("SELECT COUNT(class.teacherId) FROM TeacherEntity class");
