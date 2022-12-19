@@ -118,14 +118,12 @@ public class CourseEntity {
     @Override
     public String toString() {
         return "CourseEntity{" +
-                "courseId=" + courseId +
-                ", courseName='" + courseName + '\'' +
-                ", room='" + room + '\'' +
-                ", courseClassIdfk=" + courseClassIdfk +
-                ", courseTeacherIdfk=" + courseTeacherIdfk +
-                ", clazzByCourseClassIdfk=" + clazzByCourseClassIdfk +
-                ", teacherByCourseTeacherIdfk=" + teacherByCourseTeacherIdfk +
+                "courseId:  " + courseId + " |"+
+                " courseName': " + courseName  +" |"+
+                " room='" + room  +" |"+
                 '}';
     }
+
+
 
 }

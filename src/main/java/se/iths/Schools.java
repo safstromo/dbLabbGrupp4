@@ -36,7 +36,6 @@ public class Schools {
 		boolean exist = false;
 		while (!exist) {
 			schoolmenu();
-			System.out.println("Choose 6 to see the alternatives again:");
 			int response = scanner.nextInt();
 
 			switch (response) {
@@ -58,14 +57,14 @@ public class Schools {
 
 	}
 
-	private static void showAllSchools() {
+	public static void showAllSchools() {
 
 
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		Query query = entityManager.createQuery("SELECT school FROM SchoolEntity school");
 		printData(query);
-		scanner.nextLine();
+
 
 
 	}
@@ -127,6 +126,7 @@ public class Schools {
 
 	private static void inputToUpdateSchool() {
 
+		showAllSchools();
 		System.out.println("Enter the ID number of the school you want to update: ");
 		int updateId = scanner.nextInt();
 		scanner.nextLine();
@@ -154,6 +154,7 @@ public class Schools {
 
 	private static void deleteDetails() {
 
+		showAllSchools();
 		System.out.println("Type the ID of the school you want to remove:");
 		int inputId = scanner.nextInt();
 		deleteSchool(inputId);
@@ -178,7 +179,11 @@ public class Schools {
 	private static void printData(Query query) {
 
 		var list = query.getResultList();
-		list.forEach(System.out::println);
+		if (list.isEmpty()) {
+			System.out.println("That list does not exist!");
+
+		} else list.forEach(System.out::println);
+
 	}
 
 }

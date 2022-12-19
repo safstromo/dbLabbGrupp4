@@ -62,10 +62,12 @@ public class SchoolEntity {
         return result;
     }
 
-    @Override
+
     public String toString() {
-        return  "ID:" + schoolId +
-                ", School:'" + schoolName + '\'' +
-                ", Address:'" + address + '\'';
+        return
+                "ID: " + schoolId + " |"+
+                        " School: " + schoolName +" |"+
+                        " Adress: " + address;
     }
+
 }

@@ -11,13 +11,22 @@ import java.util.Scanner;
 
 public class Courses {
 
+
+	/*
+	Todo
+	find course -> show table before
+	find name -> show table before
+	find room -> show table before
+	update course -> show table before
+	 */
+
 	private static final Scanner scanner = new Scanner(System.in);
 
 
 	public static void menu() {
 		boolean quit = false;
-		printActions();
 		while (!quit) {
+			printActions();
 			int action = scanner.nextInt();
 			scanner.nextLine();
 
@@ -38,6 +47,7 @@ public class Courses {
 
 	private static void printActions() {
 		System.out.println("""
+				    
 				Courses
 				===============================
 				0. Print Courses menu
@@ -56,7 +66,6 @@ public class Courses {
 
 	private static void showOneCourse() {
 		EntityManager entityManager = getEntityManager();
-
 		System.out.println("Skriv ID att se vilken kurs vill du se: ");
 		int input = scanner.nextInt();
 		CourseEntity courseEntity = entityManager.find(CourseEntity.class, input);
@@ -65,10 +74,10 @@ public class Courses {
 	}
 
 	private static void printCourse(CourseEntity courseEntity) {
-		System.out.println("Course ID = " + courseEntity.getCourseId());
-		System.out.println("Course Name = " + courseEntity.getCourseName());
-		System.out.println("room = " + courseEntity.getRoom());
-		System.out.println("----------------------------");
+		System.out.print("\nCourse ID: " + courseEntity.getCourseId() + " | ");
+		System.out.print("Course Name: " + courseEntity.getCourseName() + " | ");
+		System.out.print("room: " + courseEntity.getRoom());
+
 	}
 
 	private static EntityManager getEntityManager() {
@@ -119,9 +128,9 @@ public class Courses {
 
 	}
 
-    private static void newCourse() {
-        System.out.println("Skriv kurs namn: ");
-        String inputName = scanner.nextLine();
+	private static void addCourse() {
+		System.out.println("Skriv kurs namn: ");
+		String inputName = scanner.nextLine();
 
 		System.out.println("Skriv in kurs rum: ");
 		String inputRum = scanner.nextLine();

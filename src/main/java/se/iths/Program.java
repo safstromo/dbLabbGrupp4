@@ -1,10 +1,7 @@
 package se.iths;
 
 import entity.ProgramEntity;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.Query;
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Scanner;
@@ -65,12 +62,17 @@ public class Program {
 		printListOfClasses(listOfClasses);
 	}
 
+	private static void showAllClasses2() {
+
+	}
+
 	private static void detailsOfClassToInput() {
 		System.out.println("Input name of program: ");
 		String inputName = sc.nextLine();
 		System.out.println("Input duration of the program: ");
 		int durationInput = sc.nextInt();
 		sc.nextLine();
+		Schools.showAllSchools();
 		System.out.println("Which school does the program belong to? Enter the school ID: ");
 		int schoolIDInput = sc.nextInt();
 		addNewClass(inputName, durationInput, schoolIDInput);
@@ -154,9 +156,9 @@ public class Program {
 	}
 
 	private static void detailsOfClassToDelete() {
-		System.out.println("Enter the ID of the program to delete");
+		showAllClasses();
 		int classIdToDelete = getClassId();
-		sc.nextLine();
+
 
 		deleteClass(classIdToDelete);
 	}

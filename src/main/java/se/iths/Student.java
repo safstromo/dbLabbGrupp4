@@ -18,17 +18,19 @@ public class Student {
     public static void studentMenu() {
         boolean quit = false;
         while (!quit) {
-            printMenu();
+            showStudentMenu();
             int action = sc.nextInt();
             sc.nextLine();
 
             switch (action) {
-                case 1 -> createStudent();
-                case 2 -> findStudent();
-                case 3 -> showAllStudents();
+                case 0 -> showStudentMenu();
+                case 1 -> showAllStudents();
+                case 2 -> createStudent();
+                case 3 -> findStudent();
                 case 4 -> updateStudent();
                 case 5 -> deleteStudent();
-                case 6 -> quit = true;
+                case 6 -> numberOfStudents();
+                case 7 -> quit = true;
 
             }
 
@@ -36,17 +38,19 @@ public class Student {
     }
 
 
-    public static void printMenu() {
+    public static void showStudentMenu() {
         System.out.println();
         System.out.println();
         System.out.println("Student Menu");
         System.out.println("===============================");
-        System.out.println("1. Add new student");
-        System.out.println("2. Find students by name");
-        System.out.println("3. Show all students");
+        System.out.println("0. Show Student menu");
+        System.out.println("1. Show all students");
+        System.out.println("2. Add new student");
+        System.out.println("3. Find students by name");
         System.out.println("4. Update student information");
         System.out.println("5. Remove a student");
-        System.out.println("6. Exit program");
+        System.out.println("6. Show number of students");
+        System.out.println("7. Back to main menu");
         System.out.println("===============================");
     }
 
@@ -63,9 +67,11 @@ public class Student {
         }
     }
     private static void print (StudentEntity student) {
-            System.out.println(student.getStudentId() + "|Name: " + student.getStudentName() + ", Age: " + student.getAge() +  ", Address: " + student.getAddress());
+            System.out.println("ID: " + student.getStudentId() + " |"+
+                    " Student Name: " + student.getStudentName() +" |"+
+                    " Student Age: " + student.getAge() +" |"+
+                    " Adress: " + student.getAddress());
         }
-
 
     private static void createStudent() {
         StudentEntity student = new StudentEntity();
@@ -108,6 +114,7 @@ public class Student {
     }
 
     private static void updateStudent(){
+        showAllStudents();
         System.out.println("Enter ID of the student: ");
         int studentId = sc.nextInt();
         sc.nextLine();
@@ -142,6 +149,7 @@ public class Student {
     }
 
     private static void deleteStudent () {
+        showAllStudents();
         System.out.println("Enter ID of the student: ");
         int studentId = sc.nextInt();
         sc.nextLine();
@@ -154,6 +162,9 @@ public class Student {
         }
     }
 
-}
+    private static void numberOfStudents () {
+        Query query = entityManager.createQuery("SELECT COUNT(student.studentId) FROM StudentEntity student");
+        System.out.println("There are " + query.getSingleResult() + " available in our database");
+    }
 
-//TODO Student
+}

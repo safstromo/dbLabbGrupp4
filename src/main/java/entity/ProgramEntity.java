@@ -89,12 +89,9 @@ public class ProgramEntity {
 
     @Override
     public String toString() {
-        return "ClassEntity{" +
-                "classId=" + classId +
-                ", className='" + className + '\'' +
-                ", duration=" + duration +
-                ", classSchoolIdfk=" + classSchoolIdfk +
-                ", schoolByClassSchoolIdfk=" + schoolByClassSchoolIdfk +
-                '}';
+        return
+                "ID: " + classId + " |"+
+                        " Program Name: " + className +" |"+
+                        " Duration: " + duration;
     }
 }
