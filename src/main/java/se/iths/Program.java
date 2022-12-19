@@ -119,6 +119,8 @@ public class Program {
 
 	private static void updateSwitch(ProgramEntity programEntity) {
 		int inputChoice = getInputChoice();
+		sc.nextLine();
+
 
 		switch (inputChoice) {
 			case 1 -> updateClassName(programEntity);
@@ -190,7 +192,7 @@ public class Program {
 	private static void numberOfClasses() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		Query query = entityManager.createQuery("SELECT COUNT(class.classId) FROM ProgramEntity class");
-		System.out.println("There are " + query.getSingleResult() + " available in our database");
+		System.out.println("There are " + query.getSingleResult() + " programs available in our database");
 	}
 
 	private static void printListOfClasses(List listOfClasses) {
