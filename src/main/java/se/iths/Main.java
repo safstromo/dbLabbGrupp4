@@ -3,8 +3,6 @@ package se.iths;
 import java.util.Scanner;
 
 /*Todo
- * MenuSystem där vi binder ihop alla klasser
- * Göra om menyer så att allt ser likt ut?
  * Göra om utskrifter så att allt ser likt ut?
  * Kanske ändra några av show all frågor så att vi kopplar ihop tabellerna.
  *
