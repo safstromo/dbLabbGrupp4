@@ -25,7 +25,7 @@ public class Schools {
 					4. Update a school
 					5. Delete a school
 					6. Show the alternatives again
-					7. Exit
+					7. Back to main menu
 					===============================
 					""");
 

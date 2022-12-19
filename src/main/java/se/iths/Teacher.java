@@ -16,9 +16,10 @@ public class Teacher {
 		while (menu) {
 			printTeacherMenu();
 			switch (sc.nextLine()) {
+				case "0" -> printTeacherMenu();
 				case "1" -> printAllTeachers();
-				case "2" -> findTeacherByName();
-				case "3" -> addTeacher();
+				case "2" -> addTeacher();
+				case "3" -> findTeacherByName();
 				case "4" -> updateTeacherMenu();
 				case "5" -> deleteTeacher();
 				case "6" -> {
@@ -143,12 +144,13 @@ public class Teacher {
 					
 				Teacher menu:
 				===============================
+				0. Show teacher menu
 				1. Show all teachers
-				2. Search for teacher
-				3. Add teacher
+				2. Add teacher
+				3. Search for teacher
 				4. Update teacher
 				5. Delete teacher
-				6. Exit menu
+				6. Back to main menu
 				===============================
 				""");
 	}
