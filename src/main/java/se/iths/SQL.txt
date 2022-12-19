@@ -6,13 +6,13 @@ CREATE TABLE school
 (
     schoolID   INT NOT NULL AUTO_INCREMENT,
     schoolName VARCHAR(50),
-    address    VARCHAR(50) UNIQUE,
+    address    VARCHAR(50),
     PRIMARY KEY (schoolID)
 );
 
 CREATE TABLE teacher
 (
-    teacherID   INT NOT NULL AUTO_INCREMENT UNIQUE,
+    teacherID   INT NOT NULL AUTO_INCREMENT,
     teacherName VARCHAR(50),
     address     VARCHAR(50),
     PRIMARY KEY (teacherID)
@@ -21,7 +21,7 @@ CREATE TABLE teacher
 CREATE TABLE class
 (
     classID         INT NOT NULL AUTO_INCREMENT,
-    className       VARCHAR(50) UNIQUE,
+    className       VARCHAR(50),
     duration        INT,
     classSchoolIDFK INT,
     PRIMARY KEY (classID),
@@ -41,7 +41,7 @@ CREATE TABLE student
 
 CREATE TABLE course
 (
-    courseID          INT NOT NULL UNIQUE,
+    courseID          INT NOT NULL AUTO_INCREMENT,
     courseName        VARCHAR(50),
     room              VARCHAR(50),
     courseClassIDFK   INT,
