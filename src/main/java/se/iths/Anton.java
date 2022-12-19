@@ -11,50 +11,51 @@ import java.util.Scanner;
 public class Anton {
 
     // Todo school
-    private static final Scanner scanner = new Scanner(System.in);
-    private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+     static Scanner scanner = new Scanner(System.in);
+     static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 
-    private static final EntityManager entityManager = entityManagerFactory.createEntityManager();
-    // CRUD
     public static void main(String[] args) {
 
-        schoolmenu();
+        schoolAlternativesToMenu();
 
     }
 
     private static void schoolmenu() {
-        System.out.println("""
-                SchoolMenu
-                =========
-                1. Show all schools
-                2. Show one school
-                3. Search for a school
-                4. Add a new school
-                5. Update a school
-                6. Delete a school
-                7.Show the menu for alternatives
-                8.Exit
-    """);
 
-        schoolAlternativesToMenu();
+        System.out.println("""
+               
+                ===========
+                1. Show all schools 
+                2. Search for a school
+                3. Add a new school
+                4. Update a school
+                5. Delete a school
+                6. Show the alternatives again
+                7.Exit
+                """);
+
+
 
     }
 
     private static void schoolAlternativesToMenu() {
         boolean exist = false;
         while (!exist) {
-            System.out.println("Choose 7 to see the alternatives again");
+            schoolmenu();
+            System.out.println("Choose 6 to see the alternatives again:");
             int response = scanner.nextInt();
 
             switch (response) {
                 case 1 -> showAllSchools();
-                case 2 -> showSchool();
-                case 3 -> searchSchools();
-                case 4 -> inputToNewSchool();
-                case 5 -> inputToUpdateSchool();
-                case 6 -> deleteDetails();
-                case 7 -> schoolmenu();
-                case 8 -> exist = true;
+                case 2 -> searchSchools();
+                case 3 -> inputToNewSchool();
+                case 4 -> inputToUpdateSchool();
+                case 5 -> deleteDetails();
+                case 6 -> schoolmenu();
+                case 7 -> {
+                    closeProgram();
+                    exist = true;
+                }
 
 
             }
@@ -65,66 +66,68 @@ public class Anton {
 
     private static void showAllSchools() {
 
-        //EntityManagerFactory = Persistence.createEntityManagerFactory("default");
-        // EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        Query query = entityManager.createQuery("SELECT school FROM SchoolEntity");
-        var list = query.getResultList();
-        list.forEach(System.out::println);
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        Query query = entityManager.createQuery("SELECT school FROM SchoolEntity school");
+        printData(query);
+        scanner.nextLine();
 
 
+    }
+
+    private static void searchSchools() {
+
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        System.out.println("Enter the ID number of the school you are searching for:");
+        int searchId = scanner.nextInt();
+
+        Query query = entityManager.createQuery("SELECT school FROM SchoolEntity school WHERE school.schoolId =" + searchId);
+        printData(query);
 
 
 
     }
-    private static void showSchool() {
 
-        //EntityManagerFactory = Persistence.createEntityManagerFactory("default");
-        //EntityManager entityManager = entityManagerFactory.createEntityManager();
-        SchoolEntity school = entityManager.find(SchoolEntity.class, 1);
+    private static void addSchool(String inputName, String inputAdress) {
 
-        System.out.println(school.getSchoolId() + school.getSchoolName());
-    }
-
-    private static void addSchool(String inputName, String inputAdress, int inputID) {
-
-
-        //EntityManagerFactory = Persistence.createEntityManagerFactory("default");
-        //EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
-        SchoolEntity school = new SchoolEntity();
-        school.setSchoolName(inputName);
-        school.setAddress(inputAdress);
-        school.setSchoolId(inputID);
+        SchoolEntity schoolEntity = new SchoolEntity();
+        schoolEntity.setSchoolName(inputName);
+        schoolEntity.setAddress(inputAdress);
 
-        entityManager.persist(school);
-        entitymanagerMethods();
-        System.out.println(inputName + "added successfully");
+
+        entityManager.persist(schoolEntity);
+        entitymanagerMethods(entityManager);
+        System.out.println(inputName + " added successfully!");
 
 
     }
     private static void inputToNewSchool() {
 
-        System.out.println("Write the name of the school");
+        scanner.nextLine();
+        System.out.println("Type the name of the school");
         String inputName = scanner.nextLine();
-        System.out.println("Write the adress of the school");
+        System.out.println("Type the adress of the school");
         String inputAdress = scanner.nextLine();
-        System.out.println("Write the ID");
-        int inputID = scanner.nextInt();
-        addSchool(inputName,inputAdress,inputID);
+        addSchool(inputName,inputAdress);
+        scanner.nextLine();
 
 
     }
-    private static void updateSchool(String updateName, String updateAdress,int updateId) {
+    private static void updateSchool(String updateName, String updateAdress, int updateId) {
 
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        SchoolEntity school = entityManager.find( SchoolEntity.class,updateName);
-        school.setSchoolName(updateName);
-        school.setAddress(updateAdress);
-        school.setSchoolId(updateId);
-        entityManager.persist(school);
-        entitymanagerMethods();
+        SchoolEntity schoolEntity = entityManager.find( SchoolEntity.class,updateId);
+        schoolEntity.setSchoolName(updateName);
+        schoolEntity.setAddress(updateAdress);
+        entityManager.persist(schoolEntity);
+        entitymanagerMethods(entityManager);
+        System.out.println("The school have been updated to " + updateName +"!");
+        scanner.nextLine();
     }
 
     private static void inputToUpdateSchool() {
@@ -139,42 +142,46 @@ public class Anton {
         updateSchool(updateName,updateAdress, updateId);
 
     }
-    private static void searchSchools() {
 
-        System.out.println("Enter the ID number of the school you are searching for:");
-        int searchId = scanner.nextInt();
-
-        Query query = entityManager.createQuery("SELECT school FROM SchoolEntity WHERE school.schoolID =" + searchId);
-        var list = query.getResultList();
-        list.forEach(System.out::println);
-
-
-    }
     private static void deleteSchool(int inputId) {
 
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-        SchoolEntity school = entityManager.find(SchoolEntity.class,inputId);
-        entityManager.remove(school);
-        entitymanagerMethods();
+        SchoolEntity schoolEntity = entityManager.find(SchoolEntity.class,inputId);
 
+        entityManager.remove(schoolEntity);
+        entitymanagerMethods(entityManager);
+        System.out.println(schoolEntity.getSchoolName() + " is deleted!");
+        scanner.nextLine();
 
 
     }
     private static void deleteDetails() {
 
-        System.out.println("write the ID of the school you want to remove");
+        System.out.println("Type the ID of the school you want to remove:");
         int inputId = scanner.nextInt();
         deleteSchool(inputId);
 
 
     }
-    private static void entitymanagerMethods() {
+    private static void entitymanagerMethods(EntityManager entityManager) {
+
 
         entityManager.getTransaction().commit();
         entityManager.close();
-        entityManagerFactory.close();
+
     }
 
+    private static void closeProgram() {
+
+        entityManagerFactory.close();
+
+    }
+    private static void printData(Query query) {
+
+        var list = query.getResultList();
+        list.forEach(System.out::println);
+    }
 
 }
 
