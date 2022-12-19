@@ -34,7 +34,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "D:/Utveckling mot databaser/Labb3/Inlämning/Java2022_SaheIsmail.txt",
+    "last_opened_file_path": "D:/Utveckling mot databaser/Project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,7 +85,8 @@
       <updated>1670930683169</updated>
       <workItem from="1670930684270" duration="139000" />
       <workItem from="1670930834324" duration="745000" />
-      <workItem from="1671122682956" duration="13354000" />
+      <workItem from="1671122682956" duration="13774000" />
+      <workItem from="1671435921740" duration="661000" />
     </task>
     <task id="LOCAL-00001" summary="UML diagram">
       <created>1671009852610</created>
@@ -191,7 +192,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671194215062</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fine tuning">
+      <created>1671195080316</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671195080316</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fine tuning">
+      <created>1671195418575</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671195418575</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

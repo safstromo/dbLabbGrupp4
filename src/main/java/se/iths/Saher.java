@@ -24,6 +24,7 @@ public class Saher {
         while(true) {
             System.out.println("Press 0 to see menu");
             inputChoice = sc.nextInt();
+            sc.nextLine();
 
             switch (inputChoice) {
                 case 0 -> printMenuOptions();
@@ -102,7 +103,7 @@ public class Saher {
     }
 
     private static int getClassId() {
-        System.out.println("Enter the ID of the class/program to update");
+        System.out.println("Enter the ID of the class/program:");
         int classIdToUpdate = sc.nextInt();
         sc.nextLine();
         return classIdToUpdate;
@@ -149,6 +150,7 @@ public class Saher {
     private static void detailsOfClassToDelete() {
         System.out.println("Enter the ID of the class to delete");
         int classIdToDelete = getClassId();
+        sc.nextLine();
 
         deleteClass(classIdToDelete);
     }
@@ -166,7 +168,6 @@ public class Saher {
     private static void detailsOfClassToSearch() {
         System.out.println("Input name of class/program to search");
         String inputClassName = sc.nextLine();
-        sc.nextLine();
         searchClass(inputClassName);
     }
 
