@@ -1,4 +1,4 @@
-package se.iths;
+package se.iths.tables;
 
 import entity.SchoolEntity;
 import jakarta.persistence.EntityManager;
@@ -156,7 +156,7 @@ public class Schools {
 	private static void deleteDetails() {
 
 		showAllSchools();
-		
+
 		System.out.println("Type the ID of the school you want to remove:");
 		int inputId = scanner.nextInt();
 		deleteSchool(inputId);

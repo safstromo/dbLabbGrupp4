@@ -1,4 +1,4 @@
-package se.iths;
+package se.iths.tables;
 
 import entity.StudentEntity;
 import jakarta.persistence.EntityManager;

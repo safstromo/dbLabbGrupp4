@@ -1,5 +1,7 @@
 package se.iths;
 
+import se.iths.tables.*;
+
 import java.util.Scanner;
 
 /*Todo
