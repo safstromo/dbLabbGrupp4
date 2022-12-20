@@ -94,15 +94,3 @@ INSERT INTO course (courseID, courseName, room, courseClassIDFK, courseTeacherID
 VALUES (1, 'Javaprogrammering', 'Yoshi', 1, 1),
        (2, 'Utveckling mot databaser', 'Wizard', 2, 2),
        (3, 'Javaverktyg och byggmiljöer', 'Adobe', 3, 3);
-
-
-CREATE VIEW classSchool AS
-SELECT class.className, class.duration, class.classSchoolIDFK, klader.kladerBeskrivning, klader.kladerPris
-FROM klader
-INNER JOIN tillverkare
-ON klader.kladerTillverkareIdFK = tillverkare.tillverkareId
-WHERE tillverkareNamn = 'Zara';
-
-
-
-
