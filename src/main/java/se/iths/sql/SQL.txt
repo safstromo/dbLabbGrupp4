@@ -51,7 +51,6 @@ CREATE TABLE course
     FOREIGN KEY (courseTeacherIDFK) REFERENCES teacher (teacherID)
 );
 
-DROP DATABASE dbLabbGrupp4;
 
 SELECT *
 FROM program;
