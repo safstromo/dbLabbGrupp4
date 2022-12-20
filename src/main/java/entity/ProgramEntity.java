@@ -26,16 +26,16 @@ public class ProgramEntity {
         return programId;
     }
 
-    public void setProgramId(int classId) {
-        this.programId = classId;
+    public void setProgramId(int programId) {
+        this.programId = programId;
     }
 
     public String getProgramName() {
         return programName;
     }
 
-    public void setProgramName(String className) {
-        this.programName = className;
+    public void setProgramName(String programName) {
+        this.programName = programName;
     }
 
     public Integer getDuration() {
@@ -50,8 +50,8 @@ public class ProgramEntity {
         return programSchoolIdfk;
     }
 
-    public void setProgramSchoolIdfk(Integer classSchoolIdfk) {
-        this.programSchoolIdfk = classSchoolIdfk;
+    public void setProgramSchoolIdfk(Integer programSchoolIdfk) {
+        this.programSchoolIdfk = programSchoolIdfk;
     }
 
     @Override
@@ -83,8 +83,8 @@ public class ProgramEntity {
         return schoolByProgramSchoolIdfk;
     }
 
-    public void setSchoolByProgramSchoolIdfk(SchoolEntity schoolByClassSchoolIdfk) {
-        this.schoolByProgramSchoolIdfk = schoolByClassSchoolIdfk;
+    public void setSchoolByProgramSchoolIdfk(SchoolEntity schoolByProgramSchoolIdfk) {
+        this.schoolByProgramSchoolIdfk = schoolByProgramSchoolIdfk;
     }
 
     @Override

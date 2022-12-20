@@ -19,10 +19,10 @@ public class StudentEntity {
     @Column(name = "address", nullable = true, length = 50)
     private String address;
     @Basic
-    @Column(name = "studentClassIDFK", nullable = true)
+    @Column(name = "studentProgramIDFK", nullable = true)
     private Integer studentClassIdfk;
     @ManyToOne
-    @JoinColumn(name = "studentClassIDFK", referencedColumnName = "classID" ,insertable =false, updatable = false)
+    @JoinColumn(name = "studentProgramIDFK", referencedColumnName = "programID" ,insertable =false, updatable = false)
     private ProgramEntity clazzByStudentClassIdfk;
 
     public int getStudentId() {

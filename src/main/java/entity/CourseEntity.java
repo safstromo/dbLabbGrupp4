@@ -19,13 +19,13 @@ public class CourseEntity {
     @Column(name = "room", nullable = true, length = 20)
     private String room;
     @Basic
-    @Column(name = "courseClassIDFK", nullable = true)
+    @Column(name = "courseProgramIDFK", nullable = true)
     private Integer courseClassIdfk;
     @Basic
     @Column(name = "courseTeacherIDFK", nullable = true)
     private Integer courseTeacherIdfk;
     @ManyToOne
-    @JoinColumn(name = "courseClassIDFK", referencedColumnName = "classID",insertable = false,updatable = false)
+    @JoinColumn(name = "courseProgramIDFK", referencedColumnName = "programID",insertable = false,updatable = false)
     private ProgramEntity clazzByCourseClassIdfk;
     @ManyToOne
     @JoinColumn(name = "courseTeacherIDFK", referencedColumnName = "teacherID", insertable = false,updatable = false)
