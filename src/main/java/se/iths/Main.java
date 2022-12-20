@@ -46,6 +46,8 @@ public class Main {
 
 	private static void printMenuOptions() {
 		System.out.println("""
+    
+    
 				===============================
 				Choose from the options below
 				1. View Students database

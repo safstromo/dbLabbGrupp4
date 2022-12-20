@@ -146,6 +146,8 @@ public class Teacher {
 	private static void printTeacherMenu() {
 		System.out.println("""
 					
+					
+					
 				Teacher menu:
 				===============================
 				0. Show teacher menu

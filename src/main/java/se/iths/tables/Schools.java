@@ -17,6 +17,8 @@ public class Schools {
 	private static void schoolmenu() {
 
 		System.out.println("""
+     
+     
 					School Menu
 					===============================
 					0. Print school menu 
