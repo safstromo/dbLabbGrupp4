@@ -20,7 +20,7 @@ public class Main {
 
 
 		int inputChoice;
-		System.out.println("Welcome to the PROGRAM DATABASE");
+		System.out.println("Welcome to the MAIN DATABASE");
 		while (true) {
 			printMenuOptions();
 			inputChoice = sc.nextInt();

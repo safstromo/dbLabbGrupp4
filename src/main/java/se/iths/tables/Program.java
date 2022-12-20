@@ -25,7 +25,7 @@ public class Program {
 
 			switch (inputChoice) {
 				case 0 -> printMenuOptions();
-				case 1 -> showAllClasses2();
+				case 1 -> showAllClassesWithJoin();
 				case 2 -> detailsOfClassToInput();
 				case 3 -> detailsOfClassToSearch();
 				case 4 -> detailsOfClassToUpdate();
@@ -54,15 +54,15 @@ public class Program {
 				""");
 	}
 
-	private static void showAllClasses() {
+/*	private static void showAllClasses() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		Query query = entityManager.createQuery("SELECT classes FROM ProgramEntity classes");
 
 		List<ProgramEntity> listOfClasses = query.getResultList();
 		printListOfClasses(listOfClasses);
-	}
+	}*/
 
-	private static void showAllClasses2() {
+	private static void showAllClassesWithJoin() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 		Query query = entityManager.createQuery("SELECT classes FROM ProgramEntity classes");
@@ -71,7 +71,7 @@ public class Program {
 		List<ProgramEntity> list = query.getResultList( );
 		System.out.println(list.size());
 		for( ProgramEntity p:list ){
-			System.out.println("ID: " + p.getClassId() + " | Name: " + p.getClassName() + " | School: " + p.getSchoolByClassSchoolIdfk().getSchoolName());
+			System.out.println("ID: " + p.getClassId() + " | Name: " + p.getClassName() + " | Duration: " + p.getDuration() + " years" + " | School: " + p.getSchoolByClassSchoolIdfk().getSchoolName());
 		}
 
 	}
@@ -106,7 +106,7 @@ public class Program {
 
 	private static void detailsOfClassToUpdate() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		showAllClasses();
+		showAllClassesWithJoin();
 		int classIdToUpdate = getClassId();
 
 		entityManager.getTransaction().begin();
@@ -168,7 +168,7 @@ public class Program {
 	}
 
 	private static void detailsOfClassToDelete() {
-		showAllClasses();
+		showAllClassesWithJoin();
 		int classIdToDelete = getClassId();
 
 

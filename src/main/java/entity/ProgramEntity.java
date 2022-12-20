@@ -92,6 +92,6 @@ public class ProgramEntity {
         return
                 "ID: " + classId + " |"+
                         " Program Name: " + className +" |"+
-                        " Duration: " + duration;
+                        " Duration: " + duration + " years";
     }
 }
