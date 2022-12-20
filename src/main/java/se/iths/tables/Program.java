@@ -25,12 +25,12 @@ public class Program {
 
 			switch (inputChoice) {
 				case 0 -> printMenuOptions();
-				case 1 -> showAllClassesWithJoin();
-				case 2 -> detailsOfClassToInput();
-				case 3 -> detailsOfClassToSearch();
-				case 4 -> detailsOfClassToUpdate();
-				case 5 -> detailsOfClassToDelete();
-				case 6 -> numberOfClasses();
+				case 1 -> showAllProgramsWithJoin();
+				case 2 -> detailsOfProgramToInput();
+				case 3 -> detailsOfProgramToSearch();
+				case 4 -> detailsOfProgramToUpdate();
+				case 5 -> detailsOfProgramToDelete();
+				case 6 -> numberOfPrograms();
 				case 7 -> menu = exitProgram();
 				default -> System.out.println("Invalid choice. Try again.");
 			}
@@ -54,29 +54,29 @@ public class Program {
 				""");
 	}
 
-/*	private static void showAllClasses() {
+/*	private static void showAllPrograms() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		Query query = entityManager.createQuery("SELECT classes FROM ProgramEntity classes");
+		Query query = entityManager.createQuery("SELECT programs FROM ProgramEntity programs");
 
-		List<ProgramEntity> listOfClasses = query.getResultList();
-		printListOfClasses(listOfClasses);
+		List<ProgramEntity> listOfPrograms = query.getResultList();
+		printListOfPrograms(listOfPrograms);
 	}*/
 
-	private static void showAllClassesWithJoin() {
+	private static void showAllProgramsWithJoin() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-		Query query = entityManager.createQuery("SELECT classes FROM ProgramEntity classes");
+		Query query = entityManager.createQuery("SELECT programs FROM ProgramEntity programs");
 
 
 		List<ProgramEntity> list = query.getResultList( );
 		System.out.println(list.size());
 		for( ProgramEntity p:list ){
-			System.out.println("ID: " + p.getClassId() + " | Name: " + p.getClassName() + " | Duration: " + p.getDuration() + " years" + " | School: " + p.getSchoolByClassSchoolIdfk().getSchoolName());
+			System.out.println("ID: " + p.getProgramId() + " | Name: " + p.getProgramName() + " | Duration: " + p.getDuration() + " years" + " | School: " + p.getSchoolByProgramSchoolIdfk().getSchoolName());
 		}
 
 	}
 
-	private static void detailsOfClassToInput() {
+	private static void detailsOfProgramToInput() {
 		System.out.println("Input name of program: ");
 		String inputName = sc.nextLine();
 		System.out.println("Input duration of the program: ");
@@ -85,32 +85,32 @@ public class Program {
 		Schools.showAllSchools();
 		System.out.println("Which school does the program belong to? Enter the school ID: ");
 		int schoolIDInput = sc.nextInt();
-		addNewClass(inputName, durationInput, schoolIDInput);
+		addNewProgram(inputName, durationInput, schoolIDInput);
 		sc.nextLine();
 	}
 
-	private static void addNewClass(String className, int classDuration, int classSchoolID) {
+	private static void addNewProgram(String programName, int programDuration, int programSchoolID) {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
-		ProgramEntity newClass = new ProgramEntity();
+		ProgramEntity newProgram = new ProgramEntity();
 
-		newClass.setClassName(className);
-		newClass.setDuration(classDuration);
-		newClass.setClassSchoolIdfk(classSchoolID);
+		newProgram.setProgramName(programName);
+		newProgram.setDuration(programDuration);
+		newProgram.setProgramSchoolIdfk(programSchoolID);
 
-		entityManager.persist(newClass);
+		entityManager.persist(newProgram);
 		handleEntityManager(entityManager);
 
 		System.out.println("New program successfully added!");
 	}
 
-	private static void detailsOfClassToUpdate() {
+	private static void detailsOfProgramToUpdate() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		showAllClassesWithJoin();
-		int classIdToUpdate = getClassId();
+		showAllProgramsWithJoin();
+		int programIdToUpdate = getProgramId();
 
 		entityManager.getTransaction().begin();
-		ProgramEntity programEntity = entityManager.find(ProgramEntity.class, classIdToUpdate);
+		ProgramEntity programEntity = entityManager.find(ProgramEntity.class, programIdToUpdate);
 
 		updateSwitch(programEntity);
 		entityManager.persist(programEntity);
@@ -120,11 +120,11 @@ public class Program {
 
 	}
 
-	private static int getClassId() {
+	private static int getProgramId() {
 		System.out.println("Enter the ID of the program:");
-		int classIdToUpdate = sc.nextInt();
+		int programIdToUpdate = sc.nextInt();
 		sc.nextLine();
-		return classIdToUpdate;
+		return programIdToUpdate;
 	}
 
 	private static void updateSwitch(ProgramEntity programEntity) {
@@ -133,9 +133,9 @@ public class Program {
 
 
 		switch (inputChoice) {
-			case 1 -> updateClassName(programEntity);
-			case 2 -> updateClassDuration(programEntity);
-			case 3 -> updateClassSchoolID(programEntity);
+			case 1 -> updateProgramName(programEntity);
+			case 2 -> updateProgramDuration(programEntity);
+			case 3 -> updateProgramSchoolID(programEntity);
 		}
 	}
 
@@ -148,68 +148,68 @@ public class Program {
 		return sc.nextInt();
 	}
 
-	private static void updateClassName(ProgramEntity programEntity) {
+	private static void updateProgramName(ProgramEntity programEntity) {
 		System.out.println("Write the new name for the program");
-		String newClassName = sc.nextLine();
-		programEntity.setClassName(newClassName);
+		String newProgramName = sc.nextLine();
+		programEntity.setProgramName(newProgramName);
 
 	}
 
-	private static void updateClassDuration(ProgramEntity programEntity) {
+	private static void updateProgramDuration(ProgramEntity programEntity) {
 		System.out.println("Write the new duration for the program");
-		int newClassDuration = sc.nextInt();
-		programEntity.setDuration(newClassDuration);
+		int newProgramDuration = sc.nextInt();
+		programEntity.setDuration(newProgramDuration);
 	}
 
-	private static void updateClassSchoolID(ProgramEntity programEntity) {
+	private static void updateProgramSchoolID(ProgramEntity programEntity) {
 		System.out.println("Which school does the program belong to? Enter the new school ID: ");
-		int newClassSchoolID = sc.nextInt();
-		programEntity.setClassSchoolIdfk(newClassSchoolID);
+		int newProgramSchoolID = sc.nextInt();
+		programEntity.setProgramSchoolIdfk(newProgramSchoolID);
 	}
 
-	private static void detailsOfClassToDelete() {
-		showAllClassesWithJoin();
-		int classIdToDelete = getClassId();
+	private static void detailsOfProgramToDelete() {
+		showAllProgramsWithJoin();
+		int programIdToDelete = getProgramId();
 
 
-		deleteClass(classIdToDelete);
+		deleteProgram(programIdToDelete);
 	}
 
-	private static void deleteClass(int classIdToDelete) {
+	private static void deleteProgram(int programIdToDelete) {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
-		ProgramEntity programEntity = entityManager.find(ProgramEntity.class, classIdToDelete);
+		ProgramEntity programEntity = entityManager.find(ProgramEntity.class, programIdToDelete);
 		entityManager.remove(programEntity);
 		handleEntityManager(entityManager);
 
 		System.out.println("Program successfully deleted!");
 	}
 
-	private static void detailsOfClassToSearch() {
+	private static void detailsOfProgramToSearch() {
 		System.out.println("Input name of program to search");
-		String inputClassName = sc.nextLine();
-		searchClass(inputClassName);
+		String inputProgramName = sc.nextLine();
+		searchProgram(inputProgramName);
 	}
 
-	private static void searchClass(String inputClassName) {
+	private static void searchProgram(String inputProgramName) {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
-		Query query = entityManager.createQuery("SELECT class FROM ProgramEntity class WHERE class.className = '" + inputClassName + "'");
-		var listOfClasses = query.getResultList();
-		printListOfClasses(listOfClasses);
+		Query query = entityManager.createQuery("SELECT program FROM ProgramEntity program WHERE program.programName = '" + inputProgramName + "'");
+		var listOfPrograms = query.getResultList();
+		printListOfPrograms(listOfPrograms);
 	}
 
-	private static void numberOfClasses() {
+	private static void numberOfPrograms() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		Query query = entityManager.createQuery("SELECT COUNT(class.classId) FROM ProgramEntity class");
+		Query query = entityManager.createQuery("SELECT COUNT(program.programId) FROM ProgramEntity program");
 		System.out.println("There are " + query.getSingleResult() + " programs available in our database");
 	}
 
-	private static void printListOfClasses(List listOfClasses) {
-		if (listOfClasses.isEmpty()) {
+	private static void printListOfPrograms(List listOfPrograms) {
+		if (listOfPrograms.isEmpty()) {
 			System.out.println("No programs available to show");
 		} else {
-			listOfClasses.forEach(System.out::println);
+			listOfPrograms.forEach(System.out::println);
 		}
 	}
 

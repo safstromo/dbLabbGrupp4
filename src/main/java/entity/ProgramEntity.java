@@ -3,39 +3,39 @@ package entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "class", schema = "dblabbgrupp4", catalog = "")
+@Table(name = "program", schema = "dblabbgrupp4", catalog = "")
 public class ProgramEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "classID", nullable = false)
-    private int classId;
+    @Column(name = "programID", nullable = false)
+    private int programId;
     @Basic
-    @Column(name = "className", nullable = true, length = 20)
-    private String className;
+    @Column(name = "programName", nullable = true, length = 20)
+    private String programName;
     @Basic
     @Column(name = "duration", nullable = true)
     private Integer duration;
     @Basic
-    @Column(name = "classSchoolIDFK", nullable = true)
-    private Integer classSchoolIdfk;
+    @Column(name = "programSchoolIDFK", nullable = true)
+    private Integer programSchoolIdfk;
     @ManyToOne
-    @JoinColumn(name = "classSchoolIDFK", referencedColumnName = "schoolID", insertable = false, updatable = false)
-    private SchoolEntity schoolByClassSchoolIdfk;
+    @JoinColumn(name = "programSchoolIDFK", referencedColumnName = "schoolID", insertable = false, updatable = false)
+    private SchoolEntity schoolByProgramSchoolIdfk;
 
-    public int getClassId() {
-        return classId;
+    public int getProgramId() {
+        return programId;
     }
 
-    public void setClassId(int classId) {
-        this.classId = classId;
+    public void setProgramId(int classId) {
+        this.programId = classId;
     }
 
-    public String getClassName() {
-        return className;
+    public String getProgramName() {
+        return programName;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setProgramName(String className) {
+        this.programName = className;
     }
 
     public Integer getDuration() {
@@ -46,12 +46,12 @@ public class ProgramEntity {
         this.duration = duration;
     }
 
-    public Integer getClassSchoolIdfk() {
-        return classSchoolIdfk;
+    public Integer getProgramSchoolIdfk() {
+        return programSchoolIdfk;
     }
 
-    public void setClassSchoolIdfk(Integer classSchoolIdfk) {
-        this.classSchoolIdfk = classSchoolIdfk;
+    public void setProgramSchoolIdfk(Integer classSchoolIdfk) {
+        this.programSchoolIdfk = classSchoolIdfk;
     }
 
     @Override
@@ -61,10 +61,10 @@ public class ProgramEntity {
 
         ProgramEntity that = (ProgramEntity) o;
 
-        if (classId != that.classId) return false;
-        if (className != null ? !className.equals(that.className) : that.className != null) return false;
+        if (programId != that.programId) return false;
+        if (programName != null ? !programName.equals(that.programName) : that.programName != null) return false;
         if (duration != null ? !duration.equals(that.duration) : that.duration != null) return false;
-        if (classSchoolIdfk != null ? !classSchoolIdfk.equals(that.classSchoolIdfk) : that.classSchoolIdfk != null)
+        if (programSchoolIdfk != null ? !programSchoolIdfk.equals(that.programSchoolIdfk) : that.programSchoolIdfk != null)
             return false;
 
         return true;
@@ -72,26 +72,26 @@ public class ProgramEntity {
 
     @Override
     public int hashCode() {
-        int result = classId;
-        result = 31 * result + (className != null ? className.hashCode() : 0);
+        int result = programId;
+        result = 31 * result + (programName != null ? programName.hashCode() : 0);
         result = 31 * result + (duration != null ? duration.hashCode() : 0);
-        result = 31 * result + (classSchoolIdfk != null ? classSchoolIdfk.hashCode() : 0);
+        result = 31 * result + (programSchoolIdfk != null ? programSchoolIdfk.hashCode() : 0);
         return result;
     }
 
-    public SchoolEntity getSchoolByClassSchoolIdfk() {
-        return schoolByClassSchoolIdfk;
+    public SchoolEntity getSchoolByProgramSchoolIdfk() {
+        return schoolByProgramSchoolIdfk;
     }
 
-    public void setSchoolByClassSchoolIdfk(SchoolEntity schoolByClassSchoolIdfk) {
-        this.schoolByClassSchoolIdfk = schoolByClassSchoolIdfk;
+    public void setSchoolByProgramSchoolIdfk(SchoolEntity schoolByClassSchoolIdfk) {
+        this.schoolByProgramSchoolIdfk = schoolByClassSchoolIdfk;
     }
 
     @Override
     public String toString() {
         return
-                "ID: " + classId + " |"+
-                        " Program Name: " + className +" |"+
+                "ID: " + programId + " |"+
+                        " Program Name: " + programName +" |"+
                         " Duration: " + duration + " years";
     }
 }
