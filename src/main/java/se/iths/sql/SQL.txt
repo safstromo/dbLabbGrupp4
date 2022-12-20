@@ -18,14 +18,14 @@ CREATE TABLE teacher
     PRIMARY KEY (teacherID)
 );
 
-CREATE TABLE class
+CREATE TABLE program
 (
-    classID         INT NOT NULL AUTO_INCREMENT,
-    className       VARCHAR(50),
+    programID         INT NOT NULL AUTO_INCREMENT,
+    programName       VARCHAR(50),
     duration        INT,
-    classSchoolIDFK INT,
-    PRIMARY KEY (classID),
-    FOREIGN KEY (classSchoolIDFK) REFERENCES school (schoolID)
+    programSchoolIDFK INT,
+    PRIMARY KEY (programID),
+    FOREIGN KEY (programSchoolIDFK) REFERENCES school (schoolID)
 );
 
 CREATE TABLE student
@@ -34,9 +34,9 @@ CREATE TABLE student
     studentName      VARCHAR(50),
     age              INT,
     address          VARCHAR(50),
-    studentClassIDFK INT,
+    studentProgramIDFK INT,
     PRIMARY KEY (studentID),
-    FOREIGN KEY (studentClassIDFK) REFERENCES class (classID)
+    FOREIGN KEY (studentProgramIDFK) REFERENCES program (programID)
 );
 
 CREATE TABLE course
@@ -44,17 +44,17 @@ CREATE TABLE course
     courseID          INT NOT NULL AUTO_INCREMENT,
     courseName        VARCHAR(50),
     room              VARCHAR(50),
-    courseClassIDFK   INT,
+    courseProgramIDFK   INT,
     courseTeacherIDFK INT,
     PRIMARY KEY (courseID),
-    FOREIGN KEY (courseClassIDFK) REFERENCES class (classID),
+    FOREIGN KEY (courseProgramIDFK) REFERENCES program (programID),
     FOREIGN KEY (courseTeacherIDFK) REFERENCES teacher (teacherID)
 );
 
 DROP DATABASE dbLabbGrupp4;
 
 SELECT *
-FROM class;
+FROM program;
 SELECT *
 FROM course;
 SELECT *
@@ -77,20 +77,20 @@ VALUES (1, 'It-Högskolan', ' Ebbe Lieberathsgatan 18C, 412 65 Göteborg'),
        (3, 'GU', 'Universitetsplatsen 1, 405 30 Göteborg');
 
 
--- Saher 3 -> class
-INSERT INTO class(className, duration, classSchoolIDFK)
+-- Saher 3 -> program
+INSERT INTO program(programName, duration, programSchoolIDFK)
 VALUES ('Javautvecklare', 2, 1),
        ('Webbutvecklare', 3, 2),
        ('Frontendutvecklare', 1, 3);
 
 -- Emil -> 4 student -> UNIQUE id
-INSERT INTO student(studentID, studentName, age, address, studentClassIDFK)
+INSERT INTO student(studentID, studentName, age, address, studentProgramIDFK)
 VALUES (1, 'Emil Coolman', 27, 'Maxivägen 20', 1),
        (2, 'Gregor Gregor', 22, 'Mölndalgatan', 2),
        (3, 'Stefan Stefansson', 35, 'Bengatan', 3);
 
 -- Robert 5 -> course -> UNIQUE id
-INSERT INTO course (courseID, courseName, room, courseClassIDFK, courseTeacherIDFK)
+INSERT INTO course (courseID, courseName, room, courseProgramIDFK, courseTeacherIDFK)
 VALUES (1, 'Javaprogrammering', 'Yoshi', 1, 1),
        (2, 'Utveckling mot databaser', 'Wizard', 2, 2),
        (3, 'Javaverktyg och byggmiljöer', 'Adobe', 3, 3);
