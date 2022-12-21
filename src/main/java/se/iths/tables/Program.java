@@ -39,7 +39,6 @@ public class Program {
 
 	private static void printMenuOptions() {
 		System.out.println("""
-    
 				Program Menu
 				===============================
 				Choose from the options below

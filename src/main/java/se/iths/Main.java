@@ -4,6 +4,7 @@ import se.iths.tables.*;
 
 import java.util.Scanner;
 
+
 /*Todo
  * Göra om utskrifter så att allt ser likt ut?
  * Kanske ändra några av show all frågor så att vi kopplar ihop tabellerna.
@@ -17,6 +18,7 @@ public class Main {
 	//test
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+
 
 
 		int inputChoice;
@@ -44,10 +46,12 @@ public class Main {
 
 	private static void printMenuOptions() {
 		System.out.println("""
+    
+    
 				===============================
 				Choose from the options below
 				1. View Students database
-				2. View Teachers database 
+				2. View Teachers database
 				3. View Programs database
 				4. View Courses database
 				5. View Schools database

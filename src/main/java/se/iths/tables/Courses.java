@@ -50,6 +50,8 @@ public class Courses {
 	private static void printActions() {
 		System.out.println("""
 				    
+				    
+				    
 				Courses
 				===============================
 				0. Print Courses menu
