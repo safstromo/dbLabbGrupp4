@@ -55,14 +55,6 @@ public class Program {
 				""");
 	}
 
-/*	private static void showAllPrograms() {
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
-		Query query = entityManager.createQuery("SELECT programs FROM ProgramEntity programs");
-
-		List<ProgramEntity> listOfPrograms = query.getResultList();
-		printListOfPrograms(listOfPrograms);
-	}*/
-
 	private static void showAllProgramsWithJoin() {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 
